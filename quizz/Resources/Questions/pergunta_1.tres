@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Question" load_steps=2 format=3 uid="uid://b0773ktxi2u5o"]
+
+[ext_resource type="Script" uid="uid://dxehwslnefo78" path="res://Question.gd" id="1_lcrgm"]
+
+[resource]
+script = ExtResource("1_lcrgm")
+Statement = "enunciado da pergunta"
+Options = Array[String](["opcao1", "opcao2", "opcao3", "opcao4"])
+metadata/_custom_type_script = "uid://dxehwslnefo78"

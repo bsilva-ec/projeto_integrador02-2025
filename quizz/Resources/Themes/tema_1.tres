@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="themes" load_steps=3 format=3 uid="uid://boe2md23tuuaq"]
+
+[ext_resource type="Script" uid="uid://dxehwslnefo78" path="res://Question.gd" id="1_tfgn7"]
+[ext_resource type="Script" uid="uid://qbsru7pyqtcu" path="res://Theme.gd" id="2_aeq04"]
+
+[resource]
+script = ExtResource("2_aeq04")
+ThemeQuestion = Array[ExtResource("1_tfgn7")]([null, null, null, null, null, null, null, null, null, null])
+metadata/_custom_type_script = "uid://qbsru7pyqtcu"

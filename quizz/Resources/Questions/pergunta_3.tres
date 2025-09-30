@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Question" load_steps=2 format=3 uid="uid://di63lnvggm7lk"]
+
+[ext_resource type="Script" uid="uid://dxehwslnefo78" path="res://Question.gd" id="1_e6fyx"]
+
+[resource]
+script = ExtResource("1_e6fyx")
+Statement = "Em relação à energia elétrica, marque a opção CORRETA."
+Options = Array[String](["É a mais utilizada pelas pessoas.", "É liberada em uma reação química.", " Aparece em forma de calor, raios ou luzes.", "Está relacionada com a temperatura e o calor."])
+correct = "É a mais utilizada pelas pessoas."
+metadata/_custom_type_script = "uid://dxehwslnefo78"

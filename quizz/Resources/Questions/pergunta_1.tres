@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_lcrgm")
-Statement = "enunciado da pergunta"
-Options = Array[String](["opcao1", "opcao2", "opcao3", "opcao4"])
+Statement = "A energia utilizada nas casas dos brasileiros capaz de fazer funcionar um computador é considerada uma energia"
+Options = Array[String](["mecânica", "química", "radiante", "elétrica"])
+correct = "elétrica"
 metadata/_custom_type_script = "uid://dxehwslnefo78"

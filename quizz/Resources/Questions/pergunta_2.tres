@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Question" load_steps=2 format=3 uid="uid://ix1klcsnbs2a"]
+
+[ext_resource type="Script" uid="uid://dxehwslnefo78" path="res://Question.gd" id="1_lbgn2"]
+
+[resource]
+script = ExtResource("1_lbgn2")
+Statement = "A energia utilizada para lançar uma flecha com um arco, gerando a capacidade de um corpo em produzir trabalho é chamada de:"
+Options = Array[String](["química", "mecânica", "radiante", "térmica"])
+correct = "mecânica"
+metadata/_custom_type_script = "uid://dxehwslnefo78"

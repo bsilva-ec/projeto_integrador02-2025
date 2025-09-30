@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Question" load_steps=2 format=3 uid="uid://c0eruxxnxcidj"]
+
+[ext_resource type="Script" uid="uid://dxehwslnefo78" path="res://Question.gd" id="1_ilb7g"]
+
+[resource]
+script = ExtResource("1_ilb7g")
+Statement = "Rafaela acabou esquecendo o gelo fora do congelador e ele derreteu. Isso aconteceu porque o gelo passou do estado:"
+Options = Array[String](["sólido para o gasoso. ", "sólido para o líquido.", "gasoso para o líquido.", " líquido para o gasoso."])
+correct = "sólido para o líquido."
+metadata/_custom_type_script = "uid://dxehwslnefo78"

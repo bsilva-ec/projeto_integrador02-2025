@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Question" load_steps=2 format=3 uid="uid://be8vctebkfvao"]
+
+[ext_resource type="Script" uid="uid://dxehwslnefo78" path="res://Question.gd" id="1_t27es"]
+
+[resource]
+script = ExtResource("1_t27es")
+Statement = "As mudanças do estado físico da água podem ser notadas em muitas situações do nosso dia a dia. Qual mudança de estado físico acontece quando as roupas estão secando no varal da sua casa?"
+Options = Array[String](["Vaporização", "Condensação", "Solidificação", "Fusão"])
+correct = "Vaporização"
+metadata/_custom_type_script = "uid://dxehwslnefo78"

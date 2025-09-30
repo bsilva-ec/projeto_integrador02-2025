@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Question" load_steps=2 format=3 uid="uid://cqjrei35f61qf"]
+
+[ext_resource type="Script" uid="uid://dxehwslnefo78" path="res://Question.gd" id="1_nf8rx"]
+
+[resource]
+script = ExtResource("1_nf8rx")
+Statement = "Às vezes, o fenômeno da precipitação acontece na forma de pedaços de gelo que caem do céu. Esses devastam telhas de casas, amassam veículos e podem machucar pessoas. Essa forma de precipitação é chamada de:"
+Options = Array[String](["Granizo", "Chuva", "Neve", "Gêiser"])
+correct = "Granizo"
+metadata/_custom_type_script = "uid://dxehwslnefo78"

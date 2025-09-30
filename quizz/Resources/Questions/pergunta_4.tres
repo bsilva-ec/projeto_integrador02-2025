@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Question" load_steps=2 format=3 uid="uid://cjyuoyxtp461q"]
+
+[ext_resource type="Script" uid="uid://dxehwslnefo78" path="res://Question.gd" id="1_32dvp"]
+
+[resource]
+script = ExtResource("1_32dvp")
+Statement = "Os blocos que formam a água (que chamamos molécula) reagem à mudança de temperatura se transformando em:"
+Options = Array[String](["fusão, plasma ou líquido.", "gasoso, sólido ou fusão.", " líquido, gasoso ou plasma.", "sólido, líquido ou gasoso."])
+correct = "líquido, gasoso ou plasma."
+metadata/_custom_type_script = "uid://dxehwslnefo78"

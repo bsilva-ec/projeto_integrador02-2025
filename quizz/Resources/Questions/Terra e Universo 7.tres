@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Question" load_steps=2 format=3 uid="uid://c68d2xhqm6rt4"]
+
+[ext_resource type="Script" uid="uid://dxehwslnefo78" path="res://Question.gd" id="1_1oevd"]
+
+[resource]
+script = ExtResource("1_1oevd")
+Statement = "A constelação ocidental de Orion, ou cinturão de Orion, é vista a olho nu, tanto no Hemisfério Norte quanto no Hemisfério Sul, é composta de estrelas bem brilhantes, consideradas bem maiores que o Sol, localizadas cerca de 1500 anos-luz da Terra. Estas estrelas recebem o nome de:"
+Options = Array[String](["Três Marias", "Três Órion", "Três Sirius", "Três lunares"])
+correct = "Três Marias"
+metadata/_custom_type_script = "uid://dxehwslnefo78"

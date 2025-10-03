@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Question" load_steps=2 format=3 uid="uid://bvt0nm2d21e36"]
+
+[ext_resource type="Script" uid="uid://dxehwslnefo78" path="res://Question.gd" id="1_ed5qo"]
+
+[resource]
+script = ExtResource("1_ed5qo")
+Statement = "Ao observar o céu, é possível enxergar que as estrelas estão sempre agrupadas. Este agrupamento recebe o nome de constelação. Os povos antigos associavam as constelações a figuras de animais, pessoas e objetos a aparência que as estrelas formavam ao serem ligadas por linhas imaginárias. Essas figuras possuem diferentes formatos e recebem nomes específicos, um exemplo a ser citado é a constelação do Cruzeiro do Sul, representada pela figura que lembra"
+Options = Array[String](["uma cruz, formada pela ligação imaginária de 05 estrelas", "um cruzeiro no mar, formada pela ligação imaginária de 10 estrelas", "uma espada, formada pela ligação imaginária de 20 estrelas", "um animal crucificado, formada pela ligação imaginária de 25 estrelas"])
+correct = "uma cruz, formada pela ligação imaginária de 05 estrelas"
+metadata/_custom_type_script = "uid://dxehwslnefo78"

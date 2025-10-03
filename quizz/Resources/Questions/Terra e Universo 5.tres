@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Question" load_steps=2 format=3 uid="uid://bndr0f71tsdew"]
+
+[ext_resource type="Script" uid="uid://dxehwslnefo78" path="res://Question.gd" id="1_gacty"]
+
+[resource]
+script = ExtResource("1_gacty")
+Statement = "Analise o trecho abaixo sobre Constelação, e verifique qual item contém os termos que   permite uma melhor compreensão sobre o assunto. “As constelações Ursa Maior e Ursa Menor fazem parte da constelação que pode ser observada do __________________, chamada de constelações _________________.”"
+Options = Array[String](["Hemisfério sul celeste; austrais", "Hemisfério sul celeste; boreais", "Hemisfério norte celeste; austrais", "Hemisfério norte celeste; boreais"])
+correct = "Hemisfério norte celeste; boreais"
+metadata/_custom_type_script = "uid://dxehwslnefo78"

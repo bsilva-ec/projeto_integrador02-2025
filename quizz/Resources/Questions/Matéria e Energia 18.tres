@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Question" load_steps=2 format=3 uid="uid://dv1is5b15axvo"]
+
+[ext_resource type="Script" uid="uid://dxehwslnefo78" path="res://Question.gd" id="1_bw5hk"]
+
+[resource]
+script = ExtResource("1_bw5hk")
+Statement = "Marque a alternativa que encontramos materiais considerados recicláveis"
+Options = Array[String](["Lâmpadas fluorescentes, espelhos e etiquetas adesivas", "Cerâmica, grampos e fotografias", "Plástico, isopor e caixa de leite", "Agulhas de seringas, pilhas e baterias de celulares"])
+correct = "Plástico, isopor e caixa de leite"
+metadata/_custom_type_script = "uid://dxehwslnefo78"

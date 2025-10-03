@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Question" load_steps=2 format=3 uid="uid://cqw38f4pr0pfe"]
+
+[ext_resource type="Script" uid="uid://dxehwslnefo78" path="res://Question.gd" id="1_243m0"]
+
+[resource]
+script = ExtResource("1_243m0")
+Statement = "Conforme o que você aprendeu, uma alimentação saudável ajuda o nosso corpo a"
+Options = Array[String](["funcionar melhor", "ganhar muito peso", "não se desenvolver", "perder peso em excesso"])
+correct = "funcionar melhor"
+metadata/_custom_type_script = "uid://dxehwslnefo78"

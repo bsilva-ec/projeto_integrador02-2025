@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Question" load_steps=2 format=3 uid="uid://g5cpj86jqg0f"]
+
+[ext_resource type="Script" uid="uid://dxehwslnefo78" path="res://Question.gd" id="1_n4gbb"]
+
+[resource]
+script = ExtResource("1_n4gbb")
+Statement = "Reciclar é um processo que transforma materiais considerados inutilizáveis em novos produtos para o consumo, através de sua reinserção no ciclo produtivo. Qual dos materiais listados abaixo não podemos descartar em lixões e aterros sanitários?"
+Options = Array[String](["Pilhas", "Papéis", "Plásticos", "Latas"])
+correct = "Pilhas"
+metadata/_custom_type_script = "uid://dxehwslnefo78"

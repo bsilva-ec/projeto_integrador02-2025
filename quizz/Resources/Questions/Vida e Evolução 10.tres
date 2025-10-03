@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Question" load_steps=2 format=3 uid="uid://cpaoxydg0b8lg"]
+
+[ext_resource type="Script" uid="uid://dxehwslnefo78" path="res://Question.gd" id="1_72ag2"]
+
+[resource]
+script = ExtResource("1_72ag2")
+Statement = "Em quantos grupos a pirâmide alimentar está dividida?"
+Options = Array[String](["6 grupos", "8 grupos", "10 grupos", "9 grupos"])
+correct = "8 grupos"
+metadata/_custom_type_script = "uid://dxehwslnefo78"

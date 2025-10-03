@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Question" load_steps=2 format=3 uid="uid://t1aerc567tkb"]
+
+[ext_resource type="Script" uid="uid://dxehwslnefo78" path="res://Question.gd" id="1_5o3n5"]
+
+[resource]
+script = ExtResource("1_5o3n5")
+Statement = "Sobre as constelações, assinale as alternativas verdadeiras.I- Os nomes das constelações tiveram origem pela interpretação de desenhos que formam no céu.II- As constelações são formadas pelo conjunto de estrelas localizadas no céu.III- As Três Marias são as estrelas mais brilhantes e as únicas vistas aqui da terra. "
+Options = Array[String](["Apenas I está correta", "I e II está correta", "II e III está correta", "Apenas III está correta"])
+correct = "I e II está correta"
+metadata/_custom_type_script = "uid://dxehwslnefo78"

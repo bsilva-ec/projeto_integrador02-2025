@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Question" load_steps=2 format=3 uid="uid://dwaegh13i41u0"]
+
+[ext_resource type="Script" uid="uid://dxehwslnefo78" path="res://Question.gd" id="1_i3i7i"]
+
+[resource]
+script = ExtResource("1_i3i7i")
+Statement = "Em qual parte do sistema digestório ocorre grande absorção de água e de sais minerais a partir dos restos de alimentos não aproveitados de uma refeição?"
+Options = Array[String](["No intestino delgado", "No estômago", "No intestino grosso", "No esôfago"])
+correct = "No intestino delgado"
+metadata/_custom_type_script = "uid://dxehwslnefo78"

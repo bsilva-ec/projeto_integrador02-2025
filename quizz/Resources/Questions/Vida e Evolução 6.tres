@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Question" load_steps=2 format=3 uid="uid://cg6oinimy3w50"]
+
+[ext_resource type="Script" uid="uid://dxehwslnefo78" path="res://Question.gd" id="1_hbnvc"]
+
+[resource]
+script = ExtResource("1_hbnvc")
+Statement = "O esôfago é um órgão musculoso que realiza movimentos para garantir que o alimento chegue até o estômago para dar continuidade ao processo de digestão. O esôfago está situado:"
+Options = Array[String](["Entre a boca e o estômago", "Entre o pâncreas e o estômago", "Entre o intestino grosso e o intestino delgado", "Entre o estômago e o intestino delgado"])
+correct = "Entre a boca e o estômago"
+metadata/_custom_type_script = "uid://dxehwslnefo78"

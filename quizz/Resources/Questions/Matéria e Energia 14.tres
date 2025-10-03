@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Question" load_steps=2 format=3 uid="uid://c18x44jai6wia"]
+
+[ext_resource type="Script" uid="uid://dxehwslnefo78" path="res://Question.gd" id="1_llhnv"]
+
+[resource]
+script = ExtResource("1_llhnv")
+Statement = "Em que data comemora-se o Dia Nacional da Educação Ambiental?"
+Options = Array[String](["deixar o chuveiro ligado frequentemente", "reutilizar a água da máquina de lavar", "escovar os dentes com a torneira ligada", "regar estradas para evitar poeira"])
+correct = "reutilização"
+metadata/_custom_type_script = "uid://dxehwslnefo78"

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="themes" load_steps=13 format=3 uid="uid://hu0ql20ntcq2"]
+
+[ext_resource type="Script" uid="uid://dxehwslnefo78" path="res://Question.gd" id="1_3bmfy"]
+[ext_resource type="Resource" uid="uid://byma132140ufj" path="res://Resources/Questions/Vida e Evolução 1.tres" id="2_s6uhj"]
+[ext_resource type="Resource" uid="uid://odor2lkwwb1q" path="res://Resources/Questions/Vida e Evolução 2.tres" id="3_jkv2s"]
+[ext_resource type="Resource" uid="uid://dwaegh13i41u0" path="res://Resources/Questions/Vida e Evolução 3.tres" id="4_5pho0"]
+[ext_resource type="Resource" uid="uid://durqt4mgmdfbf" path="res://Resources/Questions/Vida e Evolução 4.tres" id="5_xyglo"]
+[ext_resource type="Resource" uid="uid://dkltb5btgx26y" path="res://Resources/Questions/Vida e Evolução 5.tres" id="6_aqxuc"]
+[ext_resource type="Resource" uid="uid://cg6oinimy3w50" path="res://Resources/Questions/Vida e Evolução 6.tres" id="7_wacde"]
+[ext_resource type="Resource" uid="uid://c0cywlupej1m1" path="res://Resources/Questions/Vida e Evolução 7.tres" id="8_2st6s"]
+[ext_resource type="Resource" uid="uid://cqw38f4pr0pfe" path="res://Resources/Questions/Vida e Evolução 8.tres" id="9_3l2l4"]
+[ext_resource type="Resource" uid="uid://bonteaccbkv1e" path="res://Resources/Questions/Vida e Evolução 9.tres" id="10_h7pl4"]
+[ext_resource type="Resource" uid="uid://cpaoxydg0b8lg" path="res://Resources/Questions/Vida e Evolução 10.tres" id="11_otgvu"]
+[ext_resource type="Script" uid="uid://qbsru7pyqtcu" path="res://Theme.gd" id="12_m4cpr"]
+
+[resource]
+script = ExtResource("12_m4cpr")
+ThemeQuestion = Array[ExtResource("1_3bmfy")]([ExtResource("2_s6uhj"), ExtResource("3_jkv2s"), ExtResource("4_5pho0"), ExtResource("5_xyglo"), ExtResource("6_aqxuc"), ExtResource("7_wacde"), ExtResource("8_2st6s"), ExtResource("9_3l2l4"), ExtResource("10_h7pl4"), ExtResource("11_otgvu")])
+metadata/_custom_type_script = "uid://qbsru7pyqtcu"

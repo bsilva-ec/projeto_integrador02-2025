@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Question" load_steps=2 format=3 uid="uid://bqqvsxykf60h"]
+
+[ext_resource type="Script" uid="uid://dxehwslnefo78" path="res://Question.gd" id="1_pwdls"]
+
+[resource]
+script = ExtResource("1_pwdls")
+Statement = "Na terra, as constelações são observadas em pontos geograficamente referenciais nos hemisférios. A constelação Cruzeiro do Sul é visualizada pontualmente do hemisfério Sul, compondo as constelações "
+Options = Array[String](["Boreais", "Austrais", "Lurais", "Siriais"])
+correct = "Austrais"
+metadata/_custom_type_script = "uid://dxehwslnefo78"

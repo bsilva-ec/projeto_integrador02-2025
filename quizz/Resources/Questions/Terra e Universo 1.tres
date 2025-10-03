@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Question" load_steps=2 format=3 uid="uid://c7jlsd2eaglhp"]
+
+[ext_resource type="Script" uid="uid://dxehwslnefo78" path="res://Question.gd" id="1_cxob4"]
+
+[resource]
+script = ExtResource("1_cxob4")
+Statement = "As galáxias estão presentes em todo o universo e são formadas por corpos celestes, como as estrelas e os planetas. As estrelas são corpos celestes que produzem luz, sendo, portanto, chamadas de astros luminosos. Ao observar as estrelas, só conseguimos vê-las em tamanhos pequenos, porém, mesmo que não pareça, elas podem chegar a um tamanho semelhante ao do Sol. Assim sendo, só não conseguimos enxergar nessas proporções devido:"
+Options = Array[String](["à proximidade com a terra", "à distância elevada da terra", "ao brilho intenso das estrelas", "à luz fraca das estrelas"])
+correct = "à distância elevada da terra"
+metadata/_custom_type_script = "uid://dxehwslnefo78"

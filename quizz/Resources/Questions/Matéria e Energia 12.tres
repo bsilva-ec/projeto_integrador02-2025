@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Question" load_steps=2 format=3 uid="uid://217u3mdixmjq"]
+
+[ext_resource type="Script" uid="uid://dxehwslnefo78" path="res://Question.gd" id="1_osmpr"]
+
+[resource]
+script = ExtResource("1_osmpr")
+Statement = "Após uma aula sobre Sustentabilidade, Laura e Maira começaram a discutir questões relacionadas aos recursos naturais, como o fato da água potável ser esgotável. As duas começaram a listar ações de desperdício e economia deste recurso tão importante. Das ações abaixo, uma que proporciona a economia de água é"
+Options = Array[String](["deixar o chuveiro ligado frequentemente", "reutilizar a água da máquina de lavar", "escovar os dentes com a torneira ligada", "regar estradas para evitar poeira"])
+correct = "reutilizar a água da máquina de lavar"
+metadata/_custom_type_script = "uid://dxehwslnefo78"

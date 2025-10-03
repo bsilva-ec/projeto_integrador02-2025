@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Question" load_steps=2 format=3 uid="uid://hkv6wnoidtwy"]
+
+[ext_resource type="Script" uid="uid://dxehwslnefo78" path="res://Question.gd" id="1_mw2cf"]
+
+[resource]
+script = ExtResource("1_mw2cf")
+Statement = "O que devemos fazer com pilhas, baterias e outros lixos eletrônicos?"
+Options = Array[String](["Jogar no lixo comum para ser levado ao lixão", "Deixar nos postos específicos que mandam para depósitos de reciclagem", "Jogar no vaso e dar descarga", "Levar para lugares onde fazem incineração desse material"])
+correct = "Deixar nos postos específicos que mandam para depósitos de reciclagem"
+metadata/_custom_type_script = "uid://dxehwslnefo78"

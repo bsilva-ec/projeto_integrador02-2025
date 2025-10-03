@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Question" load_steps=2 format=3 uid="uid://dvd5slkqp8i88"]
+
+[ext_resource type="Script" uid="uid://dxehwslnefo78" path="res://Question.gd" id="1_1jjtj"]
+
+[resource]
+script = ExtResource("1_1jjtj")
+Statement = "Observe a imagem abaixo que representa uma constelação e verifique qual desenho é formado pela linha imaginária de alinhamento das estrelas."
+Options = Array[String](["Uma fênix", "Uma cobra", "Um escorpião", "Um peixe"])
+correct = "Um escorpião"
+metadata/_custom_type_script = "uid://dxehwslnefo78"

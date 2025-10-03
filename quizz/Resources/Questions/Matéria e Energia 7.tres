@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Question" load_steps=2 format=3 uid="uid://b4xi2awanni87"]
+
+[ext_resource type="Script" uid="uid://dxehwslnefo78" path="res://Question.gd" id="1_aqndr"]
+
+[resource]
+script = ExtResource("1_aqndr")
+Statement = "Bruno colocou água numa vasilha e levou ao congelador. Duas horas depois, ele viu que a água congelou completamente. Nesse caso, a água passou do estado ___________ para o estado ___________.A alternativa que completa o texto é:"
+Options = Array[String](["Sólido e líquido", "Líquido e sólido", "Gasoso e sólido", "Gasoso e líquido"])
+correct = "Líquido e sólido"
+metadata/_custom_type_script = "uid://dxehwslnefo78"

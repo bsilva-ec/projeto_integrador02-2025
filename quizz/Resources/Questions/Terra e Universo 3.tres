@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Question" load_steps=2 format=3 uid="uid://bpfq0g3ts7wrj"]
+
+[ext_resource type="Script" uid="uid://dxehwslnefo78" path="res://Question.gd" id="1_16rkj"]
+
+[resource]
+script = ExtResource("1_16rkj")
+Statement = "Uma constelação representa o agrupamento de estrelas e/ou objetos celestes localizados no céu. Muitas constelações podem ser vistas aqui da terra, formando alguns desenhos que são interpretados pelos astrônomos. Abaixo estão algumas constelações que são visualizadas da terra, EXCETO:"
+Options = Array[String](["Cruzeiro do sul", "Andrômeda", "Ursa maior", "Lunar"])
+correct = "Lunar"
+metadata/_custom_type_script = "uid://dxehwslnefo78"

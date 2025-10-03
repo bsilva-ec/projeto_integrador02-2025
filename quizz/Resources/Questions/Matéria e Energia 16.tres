@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Question" load_steps=2 format=3 uid="uid://fnotsdm62qad"]
+
+[ext_resource type="Script" uid="uid://dxehwslnefo78" path="res://Question.gd" id="1_mw2cf"]
+
+[resource]
+script = ExtResource("1_mw2cf")
+Statement = "O lixo hospitalar ou resíduos de serviço de saúde são os materiais descartados pelos estabelecimentos de saúde. Qual é o destino mais comum do lixo produzido nos hospitais?"
+Options = Array[String](["Compostagem", "Reciclagem", "Lixões", "Incineração"])
+correct = "Incineração"
+metadata/_custom_type_script = "uid://dxehwslnefo78"

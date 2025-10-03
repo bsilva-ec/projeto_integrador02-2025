@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Question" load_steps=2 format=3 uid="uid://bonteaccbkv1e"]
+
+[ext_resource type="Script" uid="uid://dxehwslnefo78" path="res://Question.gd" id="1_41hvc"]
+
+[resource]
+script = ExtResource("1_41hvc")
+Statement = "NÃO é uma recomendação adequada quanto ao cuidado com os alimentos"
+Options = Array[String](["Lavar bem verduras, legumes e frutas", "Preferir alimentos com cheiros estranhos", "Sempre verificar o prazo de validade", "Proteger alimentos de insetos e animais"])
+correct = "Preferir alimentos com cheiros estranhos"
+metadata/_custom_type_script = "uid://dxehwslnefo78"

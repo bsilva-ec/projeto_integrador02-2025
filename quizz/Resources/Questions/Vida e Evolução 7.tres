@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Question" load_steps=2 format=3 uid="uid://c0cywlupej1m1"]
+
+[ext_resource type="Script" uid="uid://dxehwslnefo78" path="res://Question.gd" id="1_ir813"]
+
+[resource]
+script = ExtResource("1_ir813")
+Statement = "Digerir é quebrar os alimentos em pedaços cada vez menores. Existem dois tipos de digestão que podemos classificá-los como:"
+Options = Array[String](["digestão simples e digestão composta", "digestão mecânica e digestão química", "digestão muscular e digestão química.", "digestão mecânica e digestão intestinal"])
+correct = "digestão muscular e digestão química"
+metadata/_custom_type_script = "uid://dxehwslnefo78"

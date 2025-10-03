@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Question" load_steps=2 format=3 uid="uid://dkltb5btgx26y"]
+
+[ext_resource type="Script" uid="uid://dxehwslnefo78" path="res://Question.gd" id="1_ou7t3"]
+
+[resource]
+script = ExtResource("1_ou7t3")
+Statement = "Qual a função da boca e dos dentes no sistema digestório?"
+Options = Array[String](["Checar os alimentos para ver se estão bons", "Levar o alimento até o estômago", "Eliminar o nutriente não necessário", "Iniciar o processo de digestão"])
+correct = "Iniciar o processo de digestão"
+metadata/_custom_type_script = "uid://dxehwslnefo78"

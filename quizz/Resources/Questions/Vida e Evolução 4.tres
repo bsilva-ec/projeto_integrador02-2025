@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Question" load_steps=2 format=3 uid="uid://durqt4mgmdfbf"]
+
+[ext_resource type="Script" uid="uid://dxehwslnefo78" path="res://Question.gd" id="1_3t1oc"]
+
+[resource]
+script = ExtResource("1_3t1oc")
+Statement = "Há um órgão responsável em transformar o alimento em massa pastosa. É nele que se inicia a digestão das proteínas através da produção de suco gástrico, além de absorver pequenas quantidades de água e as substâncias dissolvidas. Que órgão é esse?"
+Options = Array[String](["Pâncreas", "Fígado", "Intestino", "Estômago"])
+correct = "Estômago"
+metadata/_custom_type_script = "uid://dxehwslnefo78"

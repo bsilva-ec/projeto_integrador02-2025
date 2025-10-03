@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Question" load_steps=2 format=3 uid="uid://dwsm2ert70ski"]
+
+[ext_resource type="Script" uid="uid://dxehwslnefo78" path="res://Question.gd" id="1_b5cw3"]
+
+[resource]
+script = ExtResource("1_b5cw3")
+Statement = "Durante uma aula de Ciências sobre preservação do meio ambiente, a professora Camila pediu que os alunos listassem atitudes não sustentáveis. Dos itens abaixo, o único que apresenta uma prática de desperdício é"
+Options = Array[String]([" escovar os dentes com um copo de água", "reutilizar água do banho quando possível", "lavar o carro com um balde de água", "lavar o carro sempre com mangueira"])
+correct = ""
+metadata/_custom_type_script = "uid://dxehwslnefo78"

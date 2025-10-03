@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Question" load_steps=2 format=3 uid="uid://odor2lkwwb1q"]
+
+[ext_resource type="Script" uid="uid://dxehwslnefo78" path="res://Question.gd" id="1_hxcr2"]
+
+[resource]
+script = ExtResource("1_hxcr2")
+Statement = "O processamento do alimento é garantido graças à ação dos vários órgãos que compõem o canal alimentar. NÃO é um órgão que faz parte do sistema digestório"
+Options = Array[String](["a boca", "a faringe", "o estômago", "o rim"])
+correct = "o rim"
+metadata/_custom_type_script = "uid://dxehwslnefo78"

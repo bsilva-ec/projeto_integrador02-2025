@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="themes" load_steps=22 format=3 uid="uid://boe2md23tuuaq"]
+
+[ext_resource type="Script" uid="uid://dxehwslnefo78" path="res://Question.gd" id="1_npo4q"]
+[ext_resource type="Resource" uid="uid://b0773ktxi2u5o" path="res://Resources/Questions/Matéria e Energia 1.tres" id="2_xpci1"]
+[ext_resource type="Resource" uid="uid://ix1klcsnbs2a" path="res://Resources/Questions/Matéria e Energia 2.tres" id="3_rje6h"]
+[ext_resource type="Resource" uid="uid://di63lnvggm7lk" path="res://Resources/Questions/Matéria e Energia 3.tres" id="4_5jvq7"]
+[ext_resource type="Resource" uid="uid://cjyuoyxtp461q" path="res://Resources/Questions/Matéria e Energia 4.tres" id="5_13wri"]
+[ext_resource type="Script" uid="uid://qbsru7pyqtcu" path="res://Theme.gd" id="5_vdkfb"]
+[ext_resource type="Resource" uid="uid://c0eruxxnxcidj" path="res://Resources/Questions/Matéria e Energia 5.tres" id="6_nnxuv"]
+[ext_resource type="Resource" uid="uid://c8bmsfcqkdqj3" path="res://Resources/Questions/Matéria e Energia 6.tres" id="7_3kyou"]
+[ext_resource type="Resource" uid="uid://b4xi2awanni87" path="res://Resources/Questions/Matéria e Energia 7.tres" id="8_d33rs"]
+[ext_resource type="Resource" uid="uid://cqjrei35f61qf" path="res://Resources/Questions/Matéria e Energia 8.tres" id="9_khsku"]
+[ext_resource type="Resource" uid="uid://be8vctebkfvao" path="res://Resources/Questions/Matéria e Energia 9.tres" id="10_o0awd"]
+[ext_resource type="Resource" uid="uid://d4myeoo2oel" path="res://Resources/Questions/Matéria e Energia 10.tres" id="11_0b4ik"]
+[ext_resource type="Resource" uid="uid://dwsm2ert70ski" path="res://Resources/Questions/Matéria e Energia 11.tres" id="12_ldbpm"]
+[ext_resource type="Resource" uid="uid://217u3mdixmjq" path="res://Resources/Questions/Matéria e Energia 12.tres" id="13_fe13r"]
+[ext_resource type="Resource" uid="uid://cq47fhomyop5t" path="res://Resources/Questions/Matéria e Energia 13.tres" id="14_rdhkh"]
+[ext_resource type="Resource" uid="uid://c18x44jai6wia" path="res://Resources/Questions/Matéria e Energia 14.tres" id="15_1whdk"]
+[ext_resource type="Resource" uid="uid://g5cpj86jqg0f" path="res://Resources/Questions/Matéria e Energia 15.tres" id="16_t800d"]
+[ext_resource type="Resource" uid="uid://fnotsdm62qad" path="res://Resources/Questions/Matéria e Energia 16.tres" id="17_opm0h"]
+[ext_resource type="Resource" uid="uid://hkv6wnoidtwy" path="res://Resources/Questions/Matéria e Energia 17.tres" id="18_ynymf"]
+[ext_resource type="Resource" uid="uid://dv1is5b15axvo" path="res://Resources/Questions/Matéria e Energia 18.tres" id="19_e1g7g"]
+[ext_resource type="Resource" uid="uid://byma132140ufj" path="res://Resources/Questions/Vida e Evolução 1.tres" id="20_fmep3"]
+
+[resource]
+script = ExtResource("5_vdkfb")
+ThemeQuestion = Array[ExtResource("1_npo4q")]([ExtResource("2_xpci1"), ExtResource("3_rje6h"), ExtResource("4_5jvq7"), ExtResource("5_13wri"), ExtResource("6_nnxuv"), ExtResource("7_3kyou"), ExtResource("8_d33rs"), ExtResource("9_khsku"), ExtResource("10_o0awd"), ExtResource("11_0b4ik"), ExtResource("12_ldbpm"), ExtResource("13_fe13r"), ExtResource("14_rdhkh"), ExtResource("15_1whdk"), ExtResource("16_t800d"), ExtResource("17_opm0h"), ExtResource("18_ynymf"), ExtResource("19_e1g7g"), ExtResource("20_fmep3")])
+metadata/_custom_type_script = "uid://qbsru7pyqtcu"

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Question" load_steps=2 format=3 uid="uid://cnulflcn0vkx"]
+
+[ext_resource type="Script" uid="uid://dxehwslnefo78" path="res://Question.gd" id="1_i0sb2"]
+
+[resource]
+script = ExtResource("1_i0sb2")
+Statement = "Observe as imagens abaixo, uma representa a bandeira do Brasil e a outra é a constelação Cruzeiro do Sul visualizada nos céus do Rio de Janeiro exatamente no evento da Proclamação da República em 1889. A bandeira possui 27 estrelas, sabe-se que cada uma representa uma unidade federativa no país, e que estão compostas em nove constelações destaques, que são:"
+Options = Array[String](["Cruzeiro do Norte, Sirius, Triângulo Boreal, Ursa Maior e Ursa Menor", "Cruzeiro do Norte, Sirius, Triângulo Austral, Cão Maior e Ursa Menor", "Cruzeiro do Sul, Escorpião, Triângulo Austral, Cão Maior e Cão Menor", "Cinturão de Orion, Sirius, Cruzeiro do Sul, Cão Maior e Ursa Menor"])
+correct = "Cruzeiro do Sul, Escorpião, Triângulo Austral, Cão Maior e Cão Menor"
+metadata/_custom_type_script = "uid://dxehwslnefo78"

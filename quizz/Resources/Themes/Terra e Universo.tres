@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="themes" load_steps=13 format=3 uid="uid://dtk3237e1nnbw"]
+
+[ext_resource type="Script" uid="uid://dxehwslnefo78" path="res://Question.gd" id="1_x7eod"]
+[ext_resource type="Script" uid="uid://qbsru7pyqtcu" path="res://Theme.gd" id="2_1d0wu"]
+[ext_resource type="Resource" uid="uid://c7jlsd2eaglhp" path="res://Resources/Questions/Terra e Universo 1.tres" id="2_yxkgy"]
+[ext_resource type="Resource" uid="uid://bvt0nm2d21e36" path="res://Resources/Questions/Terra e Universo 2.tres" id="3_5ot0i"]
+[ext_resource type="Resource" uid="uid://bpfq0g3ts7wrj" path="res://Resources/Questions/Terra e Universo 3.tres" id="4_po0us"]
+[ext_resource type="Resource" uid="uid://bqqvsxykf60h" path="res://Resources/Questions/Terra e Universo 4.tres" id="5_sxv2g"]
+[ext_resource type="Resource" uid="uid://bndr0f71tsdew" path="res://Resources/Questions/Terra e Universo 5.tres" id="6_40rfc"]
+[ext_resource type="Resource" uid="uid://cbtfr68dx18j5" path="res://Resources/Questions/Terra e Universo 6.tres" id="7_3ietc"]
+[ext_resource type="Resource" uid="uid://c68d2xhqm6rt4" path="res://Resources/Questions/Terra e Universo 7.tres" id="8_qaach"]
+[ext_resource type="Resource" uid="uid://t1aerc567tkb" path="res://Resources/Questions/Terra e Universo 8.tres" id="9_hc823"]
+[ext_resource type="Resource" uid="uid://cnulflcn0vkx" path="res://Resources/Questions/Terra e Universo 9.tres" id="10_um3a8"]
+[ext_resource type="Resource" uid="uid://dvd5slkqp8i88" path="res://Resources/Questions/Terra e Universo 10.tres" id="11_4ib56"]
+
+[resource]
+script = ExtResource("2_1d0wu")
+ThemeQuestion = Array[ExtResource("1_x7eod")]([ExtResource("2_yxkgy"), ExtResource("3_5ot0i"), ExtResource("4_po0us"), ExtResource("5_sxv2g"), ExtResource("6_40rfc"), ExtResource("7_3ietc"), ExtResource("8_qaach"), ExtResource("9_hc823"), ExtResource("10_um3a8"), ExtResource("11_4ib56")])
+metadata/_custom_type_script = "uid://qbsru7pyqtcu"

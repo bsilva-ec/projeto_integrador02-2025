@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Question" load_steps=2 format=3 uid="uid://byma132140ufj"]
+
+[ext_resource type="Script" uid="uid://dxehwslnefo78" path="res://Question.gd" id="1_d1q8l"]
+
+[resource]
+script = ExtResource("1_d1q8l")
+Statement = "Quando ingerimos qualquer tipo de alimento, ele precisa ser transformado para que as substâncias que o compõem sejam aproveitadas. Em que local do corpo humano isso acontece?"
+Options = Array[String](["No sistema digestório", "No sistema respiratório", "No fígado", "No coração"])
+correct = "No sistema digestório"
+metadata/_custom_type_script = "uid://dxehwslnefo78"

@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="QUIZZ"
+run/main_scene="uid://b2feabqtfxu4p"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 

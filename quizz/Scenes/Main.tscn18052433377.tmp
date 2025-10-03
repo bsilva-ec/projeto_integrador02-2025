@@ -1,20 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://b2feabqtfxu4p"]
+[gd_scene load_steps=5 format=3 uid="uid://b2feabqtfxu4p"]
 
 [ext_resource type="Script" uid="uid://b5dg7cbc546xl" path="res://Scripts/Controller/game_controller.gd" id="1_r150o"]
 [ext_resource type="Resource" uid="uid://boe2md23tuuaq" path="res://Resources/Themes/tema_1.tres" id="2_idj7w"]
 [ext_resource type="Script" uid="uid://qbsru7pyqtcu" path="res://Theme.gd" id="2_rgh2o"]
 [ext_resource type="Resource" uid="uid://hu0ql20ntcq2" path="res://Resources/Themes/tema_2.tres" id="4_pbw6q"]
-[ext_resource type="Script" uid="uid://s0bfrxf26pme" path="res://MenuInicial.gd" id="5_v1gob"]
-[ext_resource type="Resource" uid="uid://b8hmxmyhi8nfi" path="res://Resources/Menu inicial/MenuInicial.tres" id="6_jw32o"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_r150o")
 temasQuestoes = Array[ExtResource("2_rgh2o")]([ExtResource("2_idj7w"), ExtResource("4_pbw6q")])
 color_right = Color(0, 0.862745, 0, 1)
 color_wrong = Color(0.905882, 0, 0, 1)
-Menu_Inicial = Array[ExtResource("5_v1gob")]([ExtResource("6_jw32o")])
+MenuInicial = null
 
 [node name="StartGame" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -67,7 +66,6 @@ vertical_alignment = 1
 justification_flags = 162
 
 [node name="Question_select" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -112,7 +110,7 @@ anchor_bottom = 1.0
 offset_top = -234.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/separation = 20
+theme_override_constants/separation = 5
 
 [node name="ButtonOption1" type="Button" parent="Question_select/QuestionOptions"]
 layout_mode = 2

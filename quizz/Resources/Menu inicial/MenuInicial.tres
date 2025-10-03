@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MenuInicial" load_steps=5 format=3 uid="uid://b8hmxmyhi8nfi"]
+
+[ext_resource type="Script" uid="uid://qbsru7pyqtcu" path="res://Theme.gd" id="1_j88cb"]
+[ext_resource type="Resource" uid="uid://boe2md23tuuaq" path="res://Resources/Themes/tema_1.tres" id="2_6iagq"]
+[ext_resource type="Script" uid="uid://s0bfrxf26pme" path="res://MenuInicial.gd" id="2_vhn7h"]
+[ext_resource type="Resource" uid="uid://hu0ql20ntcq2" path="res://Resources/Themes/tema_2.tres" id="3_d6ger"]
+
+[resource]
+script = ExtResource("2_vhn7h")
+playGame = Array[ExtResource("1_j88cb")]([ExtResource("2_6iagq"), ExtResource("3_d6ger")])
+TypeName = "configs"
+Settings = "configurações"
+Exit = "afafa"
+metadata/_custom_type_script = "uid://s0bfrxf26pme"

@@ -88,8 +88,13 @@ func ButtonsThemeSelected(button) ->void:
 		1:
 			ThemeIndex = 1
 			LoadQuiz()
+		2:
+			ThemeIndex = 2
+			LoadQuiz()
 	
 func LoadQuiz() ->void:
+	if QuestionIndex >= temasQuestoes[ThemeIndex].ThemeQuestion.size():
+		return
 	$Question_select.show()
 	#implementação dos enunciados 
 	question_text.text = temasQuestoes[ThemeIndex].ThemeQuestion[QuestionIndex].Statement
@@ -109,7 +114,19 @@ func buttonsAnswer(button) ->void:
 		button.modulate = color_right
 	else:
 		button.modulate = color_wrong
-
+		
+	NextQuestion()
+	
+func NextQuestion() -> void:
+	for i in buttonsQuestion:
+		i.pressed.disconnect(buttonsAnswer) 
+	await get_tree().create_timer(1).timeout
+	for i in buttonsQuestion:
+		i.modulate = Color.WHITE 
+		
+	QuestionIndex +=1
+		
+	LoadQuiz()
 func LoadSettings() ->void:
 	#ativar e desativar som
 	pass

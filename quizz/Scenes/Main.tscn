@@ -1,15 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://b2feabqtfxu4p"]
+[gd_scene load_steps=8 format=3 uid="uid://b2feabqtfxu4p"]
 
 [ext_resource type="Script" uid="uid://b5dg7cbc546xl" path="res://Scripts/Controller/game_controller.gd" id="1_r150o"]
 [ext_resource type="Resource" uid="uid://boe2md23tuuaq" path="res://Resources/Themes/Matéria e Energia.tres" id="2_idj7w"]
 [ext_resource type="Script" uid="uid://qbsru7pyqtcu" path="res://Theme.gd" id="2_rgh2o"]
 [ext_resource type="Resource" uid="uid://hu0ql20ntcq2" path="res://Resources/Themes/Vida e Evolução.tres" id="4_pbw6q"]
+[ext_resource type="Resource" uid="uid://dtk3237e1nnbw" path="res://Resources/Themes/Terra e Universo.tres" id="5_jw32o"]
 [ext_resource type="Script" uid="uid://s0bfrxf26pme" path="res://MenuInicial.gd" id="5_v1gob"]
 [ext_resource type="Resource" uid="uid://b8hmxmyhi8nfi" path="res://Resources/Menu inicial/MenuInicial.tres" id="6_jw32o"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_r150o")
-temasQuestoes = Array[ExtResource("2_rgh2o")]([ExtResource("2_idj7w"), ExtResource("4_pbw6q")])
+temasQuestoes = Array[ExtResource("2_rgh2o")]([ExtResource("2_idj7w"), ExtResource("4_pbw6q"), ExtResource("5_jw32o")])
 color_right = Color(0, 0.862745, 0, 1)
 color_wrong = Color(0.905882, 0, 0, 1)
 Menu_Inicial = Array[ExtResource("5_v1gob")]([ExtResource("6_jw32o")])
@@ -30,7 +31,7 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -220.5
-offset_top = -446.0
+offset_top = -341.0
 offset_right = 220.5
 grow_horizontal = 2
 grow_vertical = 0
@@ -54,11 +55,14 @@ text = "Sair
 "
 
 [node name="Label" type="Label" parent="StartGame"]
-layout_mode = 0
-offset_left = 11.0
-offset_top = 90.0
-offset_right = 1361.0
-offset_bottom = 245.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -675.0
+offset_right = 675.0
+offset_bottom = 155.0
+grow_horizontal = 2
 theme_override_font_sizes/font_size = 55
 text = "QUIZ
 "
@@ -92,8 +96,8 @@ grow_horizontal = 2
 [node name="QuestionText" type="Label" parent="Question_select/QuestionStatement"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 50
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 40
 text = "question"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -105,13 +109,15 @@ layout_mode = 2
 
 [node name="QuestionOptions" type="VBoxContainer" parent="Question_select"]
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -234.0
+offset_left = 228.0
+offset_top = 585.0
+offset_right = -225.0
+offset_bottom = -97.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 theme_override_constants/separation = 20
 
 [node name="ButtonOption1" type="Button" parent="Question_select/QuestionOptions"]

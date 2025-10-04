@@ -30,9 +30,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -220.5
-offset_top = -341.0
-offset_right = 220.5
+offset_left = -220.0
+offset_top = -313.0
+offset_right = 221.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -54,21 +54,54 @@ theme_override_font_sizes/font_size = 35
 text = "Sair
 "
 
-[node name="Label" type="Label" parent="StartGame"]
+[node name="GameName" type="Label" parent="StartGame"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -675.0
-offset_right = 675.0
-offset_bottom = 155.0
+offset_left = -636.0
+offset_right = 640.0
+offset_bottom = 313.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 55
-text = "QUIZ
+text = "
+
+QUIZ
 "
 horizontal_alignment = 1
 vertical_alignment = 1
 justification_flags = 162
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="StartGame"]
+
+[node name="Name" type="LineEdit" parent="StartGame"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = 3.0
+offset_right = 70.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InsertName" type="Label" parent="StartGame"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = -29.6205
+offset_right = 70.0
+offset_bottom = -6.62054
+grow_horizontal = 2
+grow_vertical = 2
+text = "Insira seu nome:"
 
 [node name="Question_select" type="Control" parent="."]
 visible = false
@@ -76,28 +109,80 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1.0
-offset_top = 1.0
-offset_right = -3.0
-offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonOption1" type="Button" parent="Question_select"]
+layout_mode = 2
+offset_left = 129.0
+offset_top = 388.0
+offset_right = 778.0
+offset_bottom = 516.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.487942, 0.569069)
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 25
+text = "teste"
+
+[node name="ButtonOption2" type="Button" parent="Question_select"]
+layout_mode = 2
+offset_left = 834.0
+offset_top = 388.0
+offset_right = 1483.0
+offset_bottom = 516.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.487942, 0.569069)
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 25
+text = "teste"
+
+[node name="ButtonOption3" type="Button" parent="Question_select"]
+layout_mode = 2
+offset_left = 129.0
+offset_top = 576.0
+offset_right = 778.0
+offset_bottom = 704.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.487942, 0.569069)
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 25
+text = "teste"
+
+[node name="ButtonOption4" type="Button" parent="Question_select"]
+layout_mode = 2
+offset_left = 834.0
+offset_top = 576.0
+offset_right = 1483.0
+offset_bottom = 704.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.487942, 0.569069)
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 25
+text = "teste"
 
 [node name="QuestionStatement" type="VBoxContainer" parent="Question_select"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -574.0
-offset_right = 575.0
-offset_bottom = 404.0
+offset_left = -358.0
+offset_top = 1.0
+offset_right = 559.0
+offset_bottom = 405.0
 grow_horizontal = 2
+scale = Vector2(0.780881, 0.780881)
 
 [node name="QuestionText" type="Label" parent="Question_select/QuestionStatement"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 size_flags_vertical = 6
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 35
 text = "question"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -105,34 +190,6 @@ autowrap_mode = 2
 
 [node name="QuestionImage" type="Panel" parent="Question_select/QuestionStatement"]
 custom_minimum_size = Vector2(0, 320)
-layout_mode = 2
-
-[node name="QuestionOptions" type="VBoxContainer" parent="Question_select"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 228.0
-offset_top = 585.0
-offset_right = -225.0
-offset_bottom = -97.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 20
-
-[node name="ButtonOption1" type="Button" parent="Question_select/QuestionOptions"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="ButtonOption2" type="Button" parent="Question_select/QuestionOptions"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="ButtonOption3" type="Button" parent="Question_select/QuestionOptions"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="ButtonOption4" type="Button" parent="Question_select/QuestionOptions"]
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -145,43 +202,179 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxThemes" type="VBoxContainer" parent="Select_theme"]
-custom_minimum_size = Vector2(0, 300)
+[node name="Tema1" type="Button" parent="Select_theme"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+offset_left = 394.0
+offset_top = 198.0
+offset_right = 826.0
+offset_bottom = 275.0
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 50
+text = "Matéria e Energia"
+
+[node name="Tema2" type="Button" parent="Select_theme"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+offset_left = 54.0
+offset_top = 439.0
+offset_right = 437.0
+offset_bottom = 516.0
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 50
+text = "Vida e Evolução"
+
+[node name="Tema3" type="Button" parent="Select_theme"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+offset_left = 800.0
+offset_top = 381.0
+offset_right = 1207.0
+offset_bottom = 458.0
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 50
+text = "Terra e Universo
+"
+
+[node name="GameOver" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 10
+size_flags_vertical = 6
+
+[node name="ColorRect" type="ColorRect" parent="GameOver"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.47451, 1, 1, 1)
+
+[node name="Label" type="Label" parent="GameOver"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -317.949
+offset_top = 1.0
+offset_right = 322.051
+offset_bottom = 337.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 80
+text = "Parabéns
+Total de acertos:
+"
+
+[node name="Score" type="Label" parent="GameOver"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -92.0
-offset_top = -150.0
-offset_right = 92.0
-offset_bottom = 150.0
+offset_left = -58.0
+offset_top = -162.0
+offset_right = 65.0
+offset_bottom = 201.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Tema1" type="Button" parent="Select_theme/VBoxThemes"]
-custom_minimum_size = Vector2(0, 70)
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 50
-text = "Matéria e Energia"
-
-[node name="Tema2" type="Button" parent="Select_theme/VBoxThemes"]
-custom_minimum_size = Vector2(0, 70)
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 50
-text = "Vida e Evolução"
-
-[node name="Tema3" type="Button" parent="Select_theme/VBoxThemes"]
-custom_minimum_size = Vector2(0, 70)
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 50
-text = "Terra e Universo
+theme_override_font_sizes/font_size = 80
+text = "
+0/0
 "
+
+[node name="PlayAgainScreen" type="Button" parent="GameOver"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.92
+offset_top = 79.0
+offset_right = 462.08
+offset_bottom = 164.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.409073, 0.624858)
+theme_override_font_sizes/font_size = 30
+text = "Jogar Novamente"
+
+[node name="ThemeSelectScreen" type="Button" parent="GameOver"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.92
+offset_top = 156.0
+offset_right = 462.08
+offset_bottom = 241.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.409073, 0.624858)
+theme_override_font_sizes/font_size = 30
+text = "Selecionar Tema"
+
+[node name="MenuScreen" type="Button" parent="GameOver"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.92
+offset_top = 231.375
+offset_right = 462.08
+offset_bottom = 316.375
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.409073, 0.624858)
+theme_override_font_sizes/font_size = 30
+text = "Menu Principal"
+
+[node name="NamePlayer" type="Label" parent="GameOver"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 70.0
+offset_top = -359.0
+offset_right = 352.0
+offset_bottom = -266.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+
+[node name="Settings" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="PauseScreen" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
 
 [connection signal="pressed" from="StartGame/InitialMenuButtons/Start_button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="StartGame/InitialMenuButtons/ConfigButton" to="." method="_on_config_button_pressed"]
 [connection signal="pressed" from="StartGame/InitialMenuButtons/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="text_changed" from="StartGame/Name" to="." method="_on_name_text_changed"]
+[connection signal="text_submitted" from="StartGame/Name" to="." method="_on_name_text_submitted"]
+[connection signal="pressed" from="GameOver/PlayAgainScreen" to="." method="_on_play_again_screen_pressed"]
+[connection signal="pressed" from="GameOver/ThemeSelectScreen" to="." method="_on_theme_select_screen_pressed"]
+[connection signal="pressed" from="GameOver/MenuScreen" to="." method="_on_menu_screen_pressed"]

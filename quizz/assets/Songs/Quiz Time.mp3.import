@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b08pi0l8qnucn"
+path="res://.godot/imported/Quiz Time.mp3-bfc3561da5e37b8966940ec079623fb5.mp3str"
+
+[deps]
+
+source_file="res://assets/Songs/Quiz Time.mp3"
+dest_files=["res://.godot/imported/Quiz Time.mp3-bfc3561da5e37b8966940ec079623fb5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b2feabqtfxu4p"]
+[gd_scene load_steps=13 format=3 uid="uid://b2feabqtfxu4p"]
 
 [ext_resource type="Script" uid="uid://b5dg7cbc546xl" path="res://Scripts/Controller/game_controller.gd" id="1_r150o"]
 [ext_resource type="Resource" uid="uid://boe2md23tuuaq" path="res://Resources/Themes/Matéria e Energia.tres" id="2_idj7w"]
@@ -7,6 +7,11 @@
 [ext_resource type="Resource" uid="uid://dtk3237e1nnbw" path="res://Resources/Themes/Terra e Universo.tres" id="5_jw32o"]
 [ext_resource type="Script" uid="uid://s0bfrxf26pme" path="res://MenuInicial.gd" id="5_v1gob"]
 [ext_resource type="Resource" uid="uid://b8hmxmyhi8nfi" path="res://Resources/Menu inicial/MenuInicial.tres" id="6_jw32o"]
+[ext_resource type="AudioStream" uid="uid://b08pi0l8qnucn" path="res://assets/Songs/Quiz Time.mp3" id="8_50glp"]
+[ext_resource type="AudioStream" uid="uid://dl5ok30j2061n" path="res://assets/Songs/Question Time.mp3" id="9_vy5pj"]
+[ext_resource type="AudioStream" uid="uid://dnfrjhbvqv5wh" path="res://assets/Songs/children-yaysound-effect.wav" id="10_bmxlf"]
+[ext_resource type="AudioStream" uid="uid://bhn5bagioivvy" path="res://assets/Songs/WrongSoundEfect.wav" id="10_grg3l"]
+[ext_resource type="AudioStream" uid="uid://dov36uuvroqk2" path="res://assets/Songs/CorrectSoundEfect.mp3" id="11_frkhe"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_r150o")
@@ -72,8 +77,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 justification_flags = 162
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="StartGame"]
-
 [node name="Name" type="LineEdit" parent="StartGame"]
 layout_mode = 1
 anchors_preset = 8
@@ -102,6 +105,9 @@ offset_bottom = -6.62054
 grow_horizontal = 2
 grow_vertical = 2
 text = "Insira seu nome:"
+
+[node name="InitialMenuSong" type="AudioStreamPlayer" parent="StartGame"]
+stream = ExtResource("8_50glp")
 
 [node name="Question_select" type="Control" parent="."]
 visible = false
@@ -167,31 +173,34 @@ theme_override_font_sizes/font_size = 25
 text = "teste"
 
 [node name="QuestionStatement" type="VBoxContainer" parent="Question_select"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -358.0
-offset_top = 1.0
-offset_right = 559.0
-offset_bottom = 405.0
-grow_horizontal = 2
-scale = Vector2(0.780881, 0.780881)
+layout_mode = 0
+offset_right = 1672.0
+offset_bottom = 606.0
+scale = Vector2(0.773111, 0.652978)
 
 [node name="QuestionText" type="Label" parent="Question_select/QuestionStatement"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
-size_flags_vertical = 6
+size_flags_vertical = 3
 theme_override_font_sizes/font_size = 35
 text = "question"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="QuestionImage" type="Panel" parent="Question_select/QuestionStatement"]
-custom_minimum_size = Vector2(0, 320)
+[node name="TextureRect" type="TextureRect" parent="Question_select/QuestionStatement"]
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="QuestionSong" type="AudioStreamPlayer" parent="Question_select"]
+stream = ExtResource("9_vy5pj")
+parameters/looping = false
+
+[node name="WrongQuestion" type="AudioStreamPlayer" parent="Question_select"]
+stream = ExtResource("10_grg3l")
+
+[node name="CorrectQuestion" type="AudioStreamPlayer" parent="Question_select"]
+stream = ExtResource("11_frkhe")
 
 [node name="Select_theme" type="Control" parent="."]
 visible = false
@@ -356,19 +365,107 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 40
 
-[node name="Settings" type="Control" parent="."]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
+[node name="GameOverSong" type="AudioStreamPlayer" parent="GameOver"]
+stream = ExtResource("10_bmxlf")
 
 [node name="PauseScreen" type="Control" parent="."]
 visible = false
 layout_mode = 3
-anchors_preset = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -173.726
+offset_top = -114.967
+offset_right = 355.274
+offset_bottom = 153.033
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.648, 0.904431)
+
+[node name="ReturnGame" type="Button" parent="PauseScreen/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
+text = "Retornar ao Jogo"
+
+[node name="MusicOn_Off" type="Button" parent="PauseScreen/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
+text = "Musicas"
+
+[node name="AudioFXOn_Off" type="Button" parent="PauseScreen/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
+text = "Efeitos Sonoros"
+
+[node name="ReturnMenuInitial" type="Button" parent="PauseScreen/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
+text = "Menu Principal
+"
+
+[node name="Settings" type="Label" parent="PauseScreen"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -220.0
+offset_top = 36.3124
+offset_right = 222.0
+offset_bottom = 140.312
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "Configurações"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Settings" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings"]
+layout_mode = 0
+offset_left = 420.0
+offset_top = 221.385
+offset_right = 888.0
+offset_bottom = 462.385
+
+[node name="SongConfig" type="Button" parent="Settings/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 13
+size_flags_vertical = 3
+text = "Audio"
+
+[node name="AudioFXConfig" type="Button" parent="Settings/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 13
+size_flags_vertical = 3
+text = "som
+"
+
+[node name="Quit" type="Button" parent="Settings/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 13
+size_flags_vertical = 3
+text = "Menu Principal"
 
 [connection signal="pressed" from="StartGame/InitialMenuButtons/Start_button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="StartGame/InitialMenuButtons/ConfigButton" to="." method="_on_config_button_pressed"]
@@ -378,3 +475,10 @@ offset_bottom = 1080.0
 [connection signal="pressed" from="GameOver/PlayAgainScreen" to="." method="_on_play_again_screen_pressed"]
 [connection signal="pressed" from="GameOver/ThemeSelectScreen" to="." method="_on_theme_select_screen_pressed"]
 [connection signal="pressed" from="GameOver/MenuScreen" to="." method="_on_menu_screen_pressed"]
+[connection signal="pressed" from="PauseScreen/VBoxContainer/ReturnGame" to="." method="_on_return_game_pressed"]
+[connection signal="pressed" from="PauseScreen/VBoxContainer/MusicOn_Off" to="." method="_on_music_on_off_pressed"]
+[connection signal="pressed" from="PauseScreen/VBoxContainer/AudioFXOn_Off" to="." method="_on_audio_fx_on_off_pressed"]
+[connection signal="pressed" from="PauseScreen/VBoxContainer/ReturnMenuInitial" to="." method="_on_return_pressed"]
+[connection signal="pressed" from="Settings/VBoxContainer/SongConfig" to="." method="_on_song_config_pressed"]
+[connection signal="pressed" from="Settings/VBoxContainer/AudioFXConfig" to="." method="_on_audio_fx_config_pressed"]
+[connection signal="pressed" from="Settings/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

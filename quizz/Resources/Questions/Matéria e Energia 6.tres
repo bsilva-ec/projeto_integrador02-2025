@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="Question" load_steps=2 format=3 uid="uid://c8bmsfcqkdqj3"]
+[gd_resource type="Resource" script_class="Question" load_steps=3 format=3 uid="uid://c8bmsfcqkdqj3"]
 
+[ext_resource type="Texture2D" uid="uid://dddm6agpd5237" path="res://assets/images/20190527080335.jpg" id="1_4khsk"]
 [ext_resource type="Script" uid="uid://dxehwslnefo78" path="res://Question.gd" id="1_e7lpl"]
 
 [resource]
 script = ExtResource("1_e7lpl")
 Statement = "Luana preparou um suco de maracujá e colocou bastante gelo, pois estava muito calor. Entretanto, com o passar do tempo, o gelo derreteu. No processo de derretimento do gelo do suco de Luana ocorreu a:"
+QuestionImage = ExtResource("1_4khsk")
 Options = Array[String]([" Condensação", "Solidificação", "Liquefação", "Fusão"])
 correct = "Fusão"
 metadata/_custom_type_script = "uid://dxehwslnefo78"

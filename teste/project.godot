@@ -1,0 +1,27 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Projeto Integrador"
+run/main_scene="uid://bwtpjkr3xakir"
+config/features=PackedStringArray("4.4", "Forward Plus")
+
+[autoload]
+
+GameManager="*res://scripts/game_management/GameManager.gd"
+FlowManager="*res://scripts/game_management/FlowManager.gd"
+DraggableItem="*res://scripts/components/DraggableItem.gd"
+DropZone="*res://scripts/components/DropZone.gd"
+ChallengeBase="*res://scripts/challenges/ChallengeBase.gd"
+DragDropChallenge="*res://scripts/challenges/DragDropChallenge.gd"
+QuizChallenge="*res://scripts/challenges/QuizChallenge.gd"
+RelateChallenge="*res://scripts/challenges/RelateChallenge.gd"
+ChallengeDataManager="*res://scripts/game_management/ChallengeDataManager.gd"

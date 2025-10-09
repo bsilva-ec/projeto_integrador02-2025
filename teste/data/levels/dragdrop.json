@@ -1,0 +1,19 @@
+// Modelo
+{
+  "dd_planetas_ordem": {
+	"title": "Sistema Solar",
+	"instructions": "Arraste os planetas para a posição correta em relação ao Sol.",
+	"draggable_items": [
+	  { "id": "mercurio", "image_path": "res://assets/images/mercurio.png" },
+	  { "id": "venus", "image_path": "res://assets/images/venus.png" },
+	  { "id": "terra", "image_path": "res://assets/images/terra.png" },
+	  { "id": "marte", "image_path": "res://assets/images/marte.png" }
+	],
+	"drop_zones": [
+	  { "id": "posicao_1", "accepts": "mercurio" },
+	  { "id": "posicao_2", "accepts": "venus" },
+	  { "id": "posicao_3", "accepts": "terra" },
+	  { "id": "posicao_4", "accepts": "marte" }
+	]
+  }
+}

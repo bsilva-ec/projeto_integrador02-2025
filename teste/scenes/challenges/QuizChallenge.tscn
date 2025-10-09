@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bp1hl3x77i6kp"]
+
+[ext_resource type="PackedScene" uid="uid://cm5575sipopee" path="res://scenes/components/ChallengeBase.tscn" id="1_m5lwl"]
+[ext_resource type="Script" uid="uid://bpu5unsw6fect" path="res://scripts/challenges/QuizChallenge.gd" id="2_ytub7"]
+
+[node name="ChallengeBase" instance=ExtResource("1_m5lwl")]
+script = ExtResource("2_ytub7")
+
+[node name="HBoxContainer_VBoxContainer_ChallengeContentContainer#VBoxContainer" type="VBoxContainer" parent="BackGround/HBoxContainer/VBoxContainer/ChallengeContentContainer" index="0"]
+layout_mode = 2
+
+[node name="QuestionLabel" type="RichTextLabel" parent="BackGround/HBoxContainer/VBoxContainer/ChallengeContentContainer/HBoxContainer_VBoxContainer_ChallengeContentContainer#VBoxContainer" index="0"]
+layout_mode = 2
+
+[node name="OptionsContainer" type="VBoxContainer" parent="BackGround/HBoxContainer/VBoxContainer/ChallengeContentContainer/HBoxContainer_VBoxContainer_ChallengeContentContainer#VBoxContainer" index="1"]
+layout_mode = 2
+
+[node name="ConfirmButton" type="Button" parent="BackGround/HBoxContainer/VBoxContainer/ChallengeContentContainer/HBoxContainer_VBoxContainer_ChallengeContentContainer#VBoxContainer" index="2"]
+layout_mode = 2
+text = "confirmar Resposta"

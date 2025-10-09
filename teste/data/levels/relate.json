@@ -1,0 +1,37 @@
+{
+  "rel_lua_fases": {
+	"title": "Fases da Lua",
+	"instructions": "Relacione a fase da Lua com sua descrição correta.",
+	"items_left_column": [
+	  { "id": "lua_nova", "text": "Lua Nova", "image_path": "res://assets/images/lua_nova.png" },
+	  { "id": "lua_cheia", "text": "Lua Cheia", "image_path": "res://assets/images/lua_cheia.png" },
+	  { "id": "lua_crescente", "text": "Lua Crescente", "image_path": "res://assets/images/lua_crescente.png" }
+	],
+	"items_right_column": [
+	  { "id": "invisivel", "text": "Fica quase invisível no céu.", "image_path": "" },
+	  { "id": "metade_iluminada", "text": "Apenas metade de sua face está iluminada.", "image_path": "" },
+	  { "id": "totalmente_iluminada", "text": "Sua face está totalmente iluminada.", "image_path": "" }
+	],
+	"correct_connections": [
+	  { "left_id": "lua_nova", "right_id": "invisivel" },
+	  { "left_id": "lua_cheia", "right_id": "totalmente_iluminada" },
+	  { "left_id": "lua_crescente", "right_id": "metade_iluminada" }
+	]
+  },
+  "rel_sistema_solar": {
+	"title": "Sistema Solar",
+	"instructions": "Relacione o planeta com sua característica.",
+	"items_left_column": [
+	  { "id": "marte", "text": "Marte", "image_path": "" },
+	  { "id": "jupiter", "text": "Júpiter", "image_path": "" }
+	],
+	"items_right_column": [
+	  { "id": "planeta_vermelho", "text": "Conhecido como o Planeta Vermelho.", "image_path": "" },
+	  { "id": "maior_planeta", "text": "O maior planeta do Sistema Solar.", "image_path": "" }
+	],
+	"correct_connections": [
+	  { "left_id": "marte", "right_id": "planeta_vermelho" },
+	  { "left_id": "jupiter", "right_id": "maior_planeta" }
+	]
+  }
+}

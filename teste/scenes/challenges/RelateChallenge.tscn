@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://usqrmo73xgdt"]
+
+[ext_resource type="PackedScene" uid="uid://cm5575sipopee" path="res://scenes/components/ChallengeBase.tscn" id="1_0h33l"]
+
+[node name="ChallengeBase" instance=ExtResource("1_0h33l")]
+
+[node name="BackGround_HBoxContainer_VBoxContainer_ChallengeContentContainer#HBoxContainer_VBoxContainer_ChallengeContentContainer#HBoxContainer" type="HBoxContainer" parent="." index="0"]
+layout_mode = 2
+
+[node name="LeftColumnContainer" type="VBoxContainer" parent="BackGround_HBoxContainer_VBoxContainer_ChallengeContentContainer#HBoxContainer_VBoxContainer_ChallengeContentContainer#HBoxContainer" index="0"]
+layout_mode = 2
+
+[node name="DrawingCanvas" type="Control" parent="BackGround_HBoxContainer_VBoxContainer_ChallengeContentContainer#HBoxContainer_VBoxContainer_ChallengeContentContainer#HBoxContainer" index="1"]
+layout_mode = 2
+
+[node name="RightColumnContainer" type="VBoxContainer" parent="BackGround_HBoxContainer_VBoxContainer_ChallengeContentContainer#HBoxContainer_VBoxContainer_ChallengeContentContainer#HBoxContainer" index="2"]
+layout_mode = 2

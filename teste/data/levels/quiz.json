@@ -1,0 +1,26 @@
+# Modelo
+{
+	"quiz_lua_cheia": {
+		"title": "Fases da Lua",
+		"instructions": "Leia a pergunta e selecione a alternativa correta.",
+		"question": "Qual o nome da fase em que vemos toda a face da Lua iluminada pelo Sol?",
+		"options": [
+			"Lua Nova",
+			"Lua Cheia",
+			"Lua Minguante",
+			"Lua Crescente"
+		],
+		"correct_answer": "Lua Cheia"
+	},
+	"quiz_lua_nova": {
+		"title": "Fases da Lua",
+		"instructions": "Leia a pergunta e selecione a alternativa correta.",
+		"question": "Quando a Lua está posicionada entre a Terra e o Sol, qual fase ocorre?",
+		"options": [
+			"Lua Cheia",
+			"Lua Minguante",
+			"Lua Nova"
+		],
+		"correct_answer": "Lua Nova"
+	}
+}

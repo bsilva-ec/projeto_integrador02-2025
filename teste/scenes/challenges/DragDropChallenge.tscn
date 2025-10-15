@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dy4v7qjq1yrw0"]
+[gd_scene load_steps=3 format=3 uid="uid://dy4v7qjq1yrw0"]
 
 [ext_resource type="PackedScene" uid="uid://cm5575sipopee" path="res://scenes/challenges/ChallengeBase.tscn" id="1_85mbx"]
+[ext_resource type="Script" uid="uid://dqynq2sji5ktj" path="res://scripts/challenges/DragDropChallenge.gd" id="2_sxn30"]
 
 [node name="ChallengeBase" instance=ExtResource("1_85mbx")]
+script = ExtResource("2_sxn30")
 
 [node name="DraggableItemsContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer/BackGround/MarginContainer/HBoxContainer/VBoxContainer/ChallengeContentContainer" index="0"]
 unique_name_in_owner = true

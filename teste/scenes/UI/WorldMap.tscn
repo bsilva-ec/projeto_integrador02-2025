@@ -141,6 +141,16 @@ offset_top = 121.0
 offset_right = 118.0
 offset_bottom = 152.0
 
+[node name="fase_relate_teste" type="Button" parent="ThemeViewer/Background/Theme1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.016
+anchor_bottom = 0.016
+offset_left = 382.0
+offset_top = 100.0
+offset_right = 413.0
+offset_bottom = 131.0
+
 [node name="Theme2" type="Control" parent="ThemeViewer/Background"]
 visible = false
 custom_minimum_size = Vector2(500, 500)
@@ -221,3 +231,4 @@ offset_bottom = 152.0
 [connection signal="pressed" from="ThemeViewer/Background/PreviousThemeButton" to="." method="_on_previous_theme_pressed"]
 [connection signal="pressed" from="ThemeViewer/Background/NextThemeButton" to="." method="_on_next_theme_pressed"]
 [connection signal="pressed" from="ThemeViewer/Background/Theme1/fase_propriedade_fisica_dos_materiais" to="." method="_on_botao_fase_pressionado"]
+[connection signal="pressed" from="ThemeViewer/Background/Theme1/fase_relate_teste" to="." method="_on_botao_fase_pressionado"]

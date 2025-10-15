@@ -3,6 +3,7 @@ extends Node
 
 const CAMINHO_MENU_PRINCIPAL = "res://scenes/UI/MainMenu.tscn"
 const CAMINHO_MAPA_MUNDIAL = "res://scenes/UI/WorldMap.tscn"
+const CAMINHO_TELA_RECOMPENSA = "res://scenes/UI/RewardScreen.tscn"
 
 var caminhos_cenas_fases: Dictionary = {}
 
@@ -39,3 +40,16 @@ func ir_para_fase(id_fase: String) -> void:
 		mudar_cena(caminhos_cenas_fases[id_fase])
 	else:
 		printerr("FlowManager: ID de fase não encontrado: ", id_fase)
+
+func ir_para_tela_recompensa(sucesso: bool, pontuacao: int, dados_adicionais: Dictionary = {}):
+	var cena_recompensa = load(CAMINHO_TELA_RECOMPENSA)
+	if cena_recompensa:
+		var instancia_recompensa = cena_recompensa.instantiate()
+		
+		# Adicionar sobre a cena atual (não substituir)
+		get_tree().current_scene.add_child(instancia_recompensa)
+		
+		# Configurar a tela de recompensa
+		instancia_recompensa.configurar(sucesso, pontuacao, dados_adicionais)
+	else:
+		printerr("Tela de recompensa não encontrada!")

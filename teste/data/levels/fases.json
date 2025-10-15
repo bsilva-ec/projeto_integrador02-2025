@@ -6,5 +6,11 @@
 			{ "type": "quiz", "id": "quiz_prop_fisicas_mat_2" },
 			{ "type": "quiz", "id": "quiz_prop_fisicas_mat_3" }
 		]
+	},
+	"fase_relate_teste": {
+		"title": "Fase teste de relacionar",
+		"challenges": [
+			{ "type": "relate", "id": "relate_prop_fis_mat" }
+		]
 	}
 }

@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6pmrtlwqyj41"]
+[gd_scene load_steps=6 format=3 uid="uid://b6pmrtlwqyj41"]
 
 [ext_resource type="Script" uid="uid://b1e72i6g84lb8" path="res://scripts/UI/WorldMap.gd" id="1_41tqo"]
+[ext_resource type="Texture2D" uid="uid://d223ecvdflouy" path="res://assets/backgrounds/Background.png" id="2_n50l1"]
+[ext_resource type="Texture2D" uid="uid://dar0pgpj4hcvx" path="res://assets/backgrounds/Tema 1.png" id="3_ofp3r"]
+[ext_resource type="Texture2D" uid="uid://blko503yh804n" path="res://assets/backgrounds/Tema 2.png" id="4_44mrp"]
+[ext_resource type="Texture2D" uid="uid://lr5xdul1c1ua" path="res://assets/backgrounds/Tema 3.png" id="5_ofp3r"]
 
 [node name="WorldMap" type="Control"]
 layout_mode = 3
@@ -22,21 +26,40 @@ grow_vertical = 2
 [node name="StudentHUD" type="PanelContainer" parent="."]
 layout_mode = 1
 offset_right = 237.0
-offset_bottom = 92.0
+offset_bottom = 73.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="StudentHUD"]
+[node name="MarginContainer" type="MarginContainer" parent="StudentHUD"]
 layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
 
-[node name="StudentNameLabel" type="Label" parent="StudentHUD/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="StudentHUD/MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
 
-[node name="ScoreLabel" type="Label" parent="StudentHUD/HBoxContainer"]
+[node name="StudentNameLabel" type="Label" parent="StudentHUD/MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="ScoreLabel" type="Label" parent="StudentHUD/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
 
 [node name="ThemeTitleLabel" type="Label" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.051
+anchor_right = 0.5
+anchor_bottom = 0.086
+offset_left = -20.0
+offset_top = -0.0480003
+offset_right = 20.0
+offset_bottom = 0.271999
+grow_horizontal = 2
 
 [node name="ThemeViewer" type="Control" parent="."]
 layout_mode = 1
@@ -48,12 +71,38 @@ grow_vertical = 2
 
 [node name="Background" type="TextureRect" parent="ThemeViewer"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 206.0
+offset_right = -194.0
+texture = ExtResource("2_n50l1")
+expand_mode = 1
+
+[node name="PreviousThemeButton" type="TextureButton" parent="ThemeViewer/Background"]
+layout_mode = 1
+anchors_preset = -1
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 0.053
 anchor_bottom = 0.5
-grow_horizontal = 2
+offset_left = 62.0
+offset_top = -22.0
+offset_right = 62.144
+offset_bottom = 18.0
+grow_vertical = 2
+
+[node name="NextThemeButton" type="TextureButton" parent="ThemeViewer/Background"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -20.0
+offset_right = -70.0
+offset_bottom = 20.0
+grow_horizontal = 0
 grow_vertical = 2
 
 [node name="Theme1" type="Control" parent="ThemeViewer/Background"]
@@ -64,9 +113,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -250.0
+offset_left = -256.0
 offset_top = -250.0
-offset_right = 250.0
+offset_right = 244.0
 offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -76,82 +125,99 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 18.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("3_ofp3r")
 expand_mode = 1
 
-[node name="PhaseButton" type="Button" parent="ThemeViewer/Background/Theme1"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+[node name="fase_propriedade_fisica_dos_materiais" type="Button" parent="ThemeViewer/Background/Theme1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.016
+anchor_bottom = 0.016
+offset_left = 87.0
+offset_top = 121.0
+offset_right = 118.0
+offset_bottom = 152.0
 
 [node name="Theme2" type="Control" parent="ThemeViewer/Background"]
+visible = false
+custom_minimum_size = Vector2(500, 500)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 536.0
-offset_top = 284.0
-offset_right = 576.0
-offset_bottom = 324.0
+offset_left = -256.0
+offset_top = -250.0
+offset_right = 244.0
+offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ThemeBackground" type="TextureRect" parent="ThemeViewer/Background/Theme2"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_44mrp")
+expand_mode = 1
 
 [node name="PhaseButton" type="Button" parent="ThemeViewer/Background/Theme2"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.016
+anchor_bottom = 0.016
+offset_left = 87.0
+offset_top = 121.0
+offset_right = 118.0
+offset_bottom = 152.0
 
 [node name="Theme3" type="Control" parent="ThemeViewer/Background"]
+visible = false
+custom_minimum_size = Vector2(500, 500)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 556.0
-offset_top = 304.0
-offset_right = 556.0
-offset_bottom = 304.0
+offset_left = -256.0
+offset_top = -250.0
+offset_right = 244.0
+offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ThemeBackground" type="TextureRect" parent="ThemeViewer/Background/Theme3"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_ofp3r")
+expand_mode = 1
 
 [node name="PhaseButton" type="Button" parent="ThemeViewer/Background/Theme3"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-
-[node name="PreviousThemeButton" type="TextureButton" parent="."]
 layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -20.0
-offset_right = 40.0
-offset_bottom = 20.0
-grow_vertical = 2
+anchors_preset = -1
+anchor_right = 0.016
+anchor_bottom = 0.016
+offset_left = 87.0
+offset_top = 121.0
+offset_right = 118.0
+offset_bottom = 152.0
 
-[node name="NextThemeButton" type="TextureButton" parent="."]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -40.0
-offset_top = -20.0
-offset_bottom = 20.0
-grow_horizontal = 0
-grow_vertical = 2
+[connection signal="gui_input" from="StudentHUD/MarginContainer/VBoxContainer/StudentNameLabel" to="." method="_on_student_name_label_gui_input"]
+[connection signal="gui_input" from="StudentHUD/MarginContainer/VBoxContainer/ScoreLabel" to="." method="_on_score_label_gui_input"]
+[connection signal="gui_input" from="ThemeTitleLabel" to="." method="_on_theme_title_label_gui_input"]
+[connection signal="pressed" from="ThemeViewer/Background/PreviousThemeButton" to="." method="_on_previous_theme_pressed"]
+[connection signal="pressed" from="ThemeViewer/Background/NextThemeButton" to="." method="_on_next_theme_pressed"]
+[connection signal="pressed" from="ThemeViewer/Background/Theme1/fase_propriedade_fisica_dos_materiais" to="." method="_on_botao_fase_pressionado"]

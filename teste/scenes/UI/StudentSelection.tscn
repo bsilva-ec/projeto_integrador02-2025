@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c87eplpgowiob"]
+[gd_scene load_steps=3 format=3 uid="uid://c87eplpgowiob"]
 
 [ext_resource type="Script" uid="uid://dbo8epnxmbjta" path="res://scripts/UI/StudentSelection.gd" id="1_vqok5"]
+[ext_resource type="Texture2D" uid="uid://d223ecvdflouy" path="res://assets/backgrounds/Background.png" id="2_wmhnq"]
 
 [node name="StudentSelection" type="Control"]
 layout_mode = 3
@@ -19,45 +20,82 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect"]
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 30
 
-[node name="TitleLabel" type="Label" parent="TextureRect/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="TextureRect/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_wmhnq")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect/MarginContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 265
+theme_override_constants/margin_right = 265
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/MarginContainer/TextureRect/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="TextureRect/MarginContainer/TextureRect/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="TextureRect/MarginContainer/TextureRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Quem está Jogando?"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="TextureRect/VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="TextureRect/MarginContainer/TextureRect/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TextureRect/MarginContainer/TextureRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="StudentListContainer" type="VBoxContainer" parent="TextureRect/VBoxContainer/ScrollContainer"]
+[node name="StudentListContainer" type="VBoxContainer" parent="TextureRect/MarginContainer/TextureRect/MarginContainer/VBoxContainer/ScrollContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/VBoxContainer"]
+[node name="FeedbackLabel" type="Label" parent="TextureRect/MarginContainer/TextureRect/MarginContainer/VBoxContainer/ScrollContainer/StudentListContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/MarginContainer/TextureRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="NewStudentInput" type="LineEdit" parent="TextureRect/VBoxContainer/HBoxContainer"]
+[node name="NewStudentInput" type="LineEdit" parent="TextureRect/MarginContainer/TextureRect/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 placeholder_text = "Digite seu nome aqui"
 alignment = 1
 
-[node name="CreateStudentButton" type="Button" parent="TextureRect/VBoxContainer/HBoxContainer"]
+[node name="CreateStudentButton" type="Button" parent="TextureRect/MarginContainer/TextureRect/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Criar e Entrar"
 
-[node name="FeedbackLabel" type="Label" parent="TextureRect/VBoxContainer"]
+[node name="HSeparator3" type="HSeparator" parent="TextureRect/MarginContainer/TextureRect/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 
-[connection signal="pressed" from="TextureRect/VBoxContainer/HBoxContainer/CreateStudentButton" to="." method="_on_create_student_button_pressed"]
+[connection signal="pressed" from="TextureRect/MarginContainer/TextureRect/MarginContainer/VBoxContainer/HBoxContainer/CreateStudentButton" to="." method="_on_create_student_button_pressed"]

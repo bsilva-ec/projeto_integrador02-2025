@@ -1,37 +1,30 @@
 # RelateItem.gd
 extends PanelContainer
 
-# Identificador único para este item, vindo dos dados do desafio
 var id: String
 
-# Referências para os nós filhos que foi configurado na cena.
-@onready var image_display: TextureRect = $VBoxContainer/ImageDisplay
-@onready var text_label: Label = $VBoxContainer/TextLabel
+var display_imagem: TextureRect
+var label_texto: Label
 
 func _ready():
-	# Conecta os sinais do próprio PanelContainer para dar feedback visual ao jogador.
-	mouse_entered.connect(_on_mouse_entered)
-	mouse_exited.connect(_on_mouse_exited)
+	display_imagem = find_child("ImageDisplay", true, false)
+	label_texto = find_child("TextLabel", true, false)
 	
-	# Cor inicial (totalmente opaco e branco)
+	mouse_entered.connect(_on_mouse_entrou)
+	mouse_exited.connect(_on_mouse_saiu)
+	
 	self_modulate = Color(1, 1, 1, 1)
 
-# Define o texto do item. Se o texto for vazio, esconde o Label.
-func set_text(new_text: String) -> void:
-	text_label.text = new_text
-	text_label.visible = not new_text.is_empty()
+func definir_texto(novo_texto: String) -> void:
+	label_texto.text = novo_texto
+	label_texto.visible = not novo_texto.is_empty()
 
-# Define a imagem do item. Se a textura for nula, esconde o TextureRect
-func set_imagem(new_texture: Texture2D) -> void:
-	image_display.texture = new_texture
-	image_display.visible = (new_texture != null)
+func definir_imagem(nova_textura: Texture2D) -> void:
+	display_imagem.texture = nova_textura
+	display_imagem.visible = (nova_textura != null)
 
-# Função de Feedback Visual
+func _on_mouse_entrou():
+	self_modulate = Color(1.2, 1.2, 1.2, 1)
 
-# Quando o mouse entra na área do item, ele fica um pouco mais claro.
-func _on_mouse_entered():
-	self_modulate = Color(1.2, 1.2, 1.2, 1)  # Um branco mais "brilhante"
-
-# Quando o mouse sai, ele volta à cor normal.
-func _on_mouse_exited():
+func _on_mouse_saiu():
 	self_modulate = Color(1, 1, 1, 1)

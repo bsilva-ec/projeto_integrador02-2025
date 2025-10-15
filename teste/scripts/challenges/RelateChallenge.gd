@@ -1,173 +1,170 @@
 # RelateChallenge.gd
 extends "res://scripts/challenges/ChallengeBase.gd"
 
-const RelateItem = preload("res://scripts/components/RelateItem.gd")
+const ItemRelacionar = preload("res://scripts/components/RelateItem.gd")
 
-@onready var left_column_container: VBoxContainer = %LeftColumnContainer # Contêiner para itens da coluna esquerda
-@onready var right_column_container: VBoxContainer = %RightColumnContêiner # Contêiner para itens da coluna direita
-@onready var drawing_canvas: Control = %DrawingConvas # Um Control onde as linhas serão desenhadas
+var container_coluna_esquerda: VBoxContainer
+var container_coluna_direita: VBoxContainer
+var canvas_desenho: Control
 
-var _items_left: Array = []
-var _items_right: Array = []
-var _correct_connections_data: Array = []
-var _current_connections: Dictionary = {} # {left_item_id: right_item_id}
-var _correct_connections_count: int = 0
-var _total_connections_needed: int = 0
+var _itens_esquerda: Array = []
+var _itens_direita: Array = []
+var _conexoes_corretas: Array = []
+var _conexoes_atuais: Dictionary = {}
+var _contador_conexoes_corretas: int = 0
+var _total_conexoes_necessarias: int = 0
 
-var _is_drawing_line: bool = false
-var _drawing_start_pos: Vector2
-var _current_drawing_line_item_id: String
+var _desenhando_linha: bool = false
+var _posicao_inicio_desenho: Vector2
+var _id_item_linha_atual: String
 
 func _ready():
 	super._ready()
-	drawing_canvas.set_process_input(true)
-	drawing_canvas.gui_input.connect(_on_canvas_gui_input)
-
-# Método Sobrescritos da ChallengeBase
-
-func _load_challenge_data() -> Dictionary:
-	return _challenge_data
-
-func _setup_ui_for_challenge(data: Dictionary) -> void:
-	_items_left = data.get("items_left_column", [])
-	_items_right = data.get("items_right_column", [])
-	_correct_connections_data = data.get("correct_connections", [])
-	_total_connections_needed = _correct_connections_data.size()
-	_correct_connections_count = 0
-	_current_connections.clear()
+	container_coluna_esquerda = find_child("LeftColumnContainer", true, false)
+	container_coluna_direita = find_child("RightColumnContainer", true, false) 
+	canvas_desenho = find_child("DrawingCanvas", true, false)
 	
-	# Limpa contêineres
-	for item_data in _items_left:
-		var item_node = RelateItem.new() # Componente para cada item
-		item_node.id = item_data.id
-		item_node.set_text(item_data.text)
-		item_node.set_image(load(item_data.image_path))
-		left_column_container.add_child(item_node)
-	
-	for item_data in _items_right:
-		var item_node = RelateItem.new()
-		item_node.id = item_data.id
-		item_node.set_text(item_data.text)
-		item_node.set_image(load(item_data.image_path))
-		right_column_container.add_child(item_node)
-	
-	update_progress_bar(_correct_connections_count, _total_connections_needed)
-	drawing_canvas.queue_redraw() # Garante que as linhas iniciais (se houver) sejam desenhadas
+	if canvas_desenho:
+		canvas_desenho.set_process_input(true)
+		canvas_desenho.gui_input.connect(_on_canvas_entrada_interface)
 
-func _start_challenge_logic() -> void:
-	pass # Lógica é reativa à interação
+func _carregar_dados_desafio() -> Dictionary:
+	return _dados_desafio
 
-func _process_player_input(input_data) -> void:
-	# O _input será gerenciado pelo gui_input do drawing_canvas
+func _configurar_interface_desafio(dados: Dictionary) -> void:
+	_itens_esquerda = dados.get("items_left_column", [])
+	_itens_direita = dados.get("items_right_column", [])
+	_conexoes_corretas = dados.get("correct_connections", [])
+	_total_conexoes_necessarias = _conexoes_corretas.size()
+	_contador_conexoes_corretas = 0
+	_conexoes_atuais.clear()
+	
+	for item_dados in _itens_esquerda:
+		var no_item = ItemRelacionar.new()
+		no_item.id = item_dados.id
+		no_item.definir_texto(item_dados.text)
+		no_item.definir_imagem(load(item_dados.image_path))
+		container_coluna_esquerda.add_child(no_item)
+	
+	for item_dados in _itens_direita:
+		var no_item = ItemRelacionar.new()
+		no_item.id = item_dados.id
+		no_item.definir_texto(item_dados.text)
+		no_item.definir_imagem(load(item_dados.image_path))
+		container_coluna_direita.add_child(no_item)
+	
+	atualizar_barra_progresso(_contador_conexoes_corretas, _total_conexoes_necessarias)
+	canvas_desenho.queue_redraw()
+
+func _iniciar_logica_desafio() -> void:
 	pass
 
-# Métodos Específicos do Relacionar
+func _processar_entrada_jogador(_dados_entrada) -> void:
+	pass
 
-func _on_canvas_gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT:
-			if event.pressed: # Mouse clicado
-				var item_under_mouse = _get_relate_item_at_position(event.position)
-				if item_under_mouse:
-					_is_drawing_line = true
-					_drawing_start_pos = item_under_mouse.global_position + item_under_mouse.size / 2
-					_current_drawing_line_item_id = item_under_mouse.id
-					drawing_canvas.queue_redraw() # Começa a desenhar a linha
-				else: # Mouse solto
-					if _is_drawing_line:
-						_is_drawing_line = false
-						var target_item = _get_relate_item_at_position(event.position)
-						if target_item and target_item.id != _current_drawing_line_item_id: # Não pode ligar a si mesmo
-							_try_connect(_current_drawing_line_item_id, target_item.id)
-						drawing_canvas.queue_redraw() # Para de desenhar a linha "solta"
+func _on_canvas_entrada_interface(evento: InputEvent):
+	if evento is InputEventMouseButton:
+		if evento.button_index == MOUSE_BUTTON_LEFT:
+			if evento.pressed:
+				var item_sob_mouse = _obter_item_relacionar_na_posicao(evento.position)
+				if item_sob_mouse:
+					_desenhando_linha = true
+					_posicao_inicio_desenho = item_sob_mouse.global_position + item_sob_mouse.size / 2
+					_id_item_linha_atual = item_sob_mouse.id
+					canvas_desenho.queue_redraw()
+				else:
+					if _desenhando_linha:
+						_desenhando_linha = false
+						var item_alvo = _obter_item_relacionar_na_posicao(evento.position)
+						if item_alvo and item_alvo.id != _id_item_linha_atual:
+							_tentar_conectar(_id_item_linha_atual, item_alvo.id)
+						canvas_desenho.queue_redraw()
 	
-	elif event is InputEventMouseMotion:
-		if _is_drawing_line:
-			drawing_canvas.queue_redraw() # Redesenha a linha enquanto o mouse se move
+	elif evento is InputEventMouseMotion:
+		if _desenhando_linha:
+			canvas_desenho.queue_redraw()
 
-func _get_relate_item_at_position(canvas_pos: Vector2) -> Node:
-	# Helper para encontrar qual item RelateItem está sob o mouse
-	# Precisa de uma maneira de iterar sobre todos os itens de ambas as colunas
-	# e verificar se o canvas_pos está dentro do retângulo de algum item
-	# Pode ser complexo, simplificando para exemplo:
-	for child in left_column_container.get_children():
-		if child is RelateItem and child.get_global_rect().has_point(canvas_pos):
-			return child
-	for child in right_column_container.get_children():
-		if child is RelateItem and child.get_global_rect().has_point(canvas_pos):
-			return child
+func _obter_item_relacionar_na_posicao(posicao_canvas: Vector2) -> Node:
+	var posicao_mouse_global = canvas_desenho.to_global(posicao_canvas)
+	
+	for filho in container_coluna_esquerda.get_children():
+		if filho is ItemRelacionar and filho.get_global_rect().has_point(posicao_mouse_global):
+			return filho
+	for filho in container_coluna_direita.get_children():
+		if filho is ItemRelacionar and filho.get_global_rect().has_point(posicao_mouse_global):
+			return filho
 	return null
 
-func _try_connect(source_id: String, target_id: String) -> void:
-	var is_correct = false
-	var connection_key = ""
+func _tentar_conectar(id_origem: String, id_alvo: String) -> void:
+	var correto = false
 	
-	# Verifica se a conexão é válida (fonte da esquerda, alvo da direita ou vice-versa)
-	var is_source_left = _items_left.any(func(item): return item.id == source_id)
-	var is_target_right = _items_right.any(func(item): return item.id == target_id)
+	# CORREÇÃO: substituir any() por loop tradicional
+	var origem_esquerda = false
+	for item in _itens_esquerda:
+		if item.id == id_origem:
+			origem_esquerda = true
+			break
 	
-	if is_source_left and is_target_right:
-		connection_key = source_id + "-" + target_id
-		for conn in _correct_connections_data:
-			if conn.left_id == source_id and conn.right_id == target_id:
-				is_correct = true
-				break
-	elif not is_source_left and not is_target_right: # Ambos são da mesma coluna, ou inválidos
-		pass # Não permitir conexão entre itens da mesma coluna
-	else: # Conexão inválida (ex: target está na coluna esquerda)
-		pass
+	var alvo_direita = false  
+	for item in _itens_direita:
+		if item.id == id_alvo:
+			alvo_direita = true
+			break
 	
-	if is_correct:
-		if not _current_connections.has(source_id) and not _current_connections.has(target_id): # Apenas uma conexão por item
-			_current_connections[source_id] = target_id
-			_current_connections[target_id] = source_id # Para verificar se o item já está conectado
-			_correct_connections_count += 1
-			_score += 30 # Exemplo de pontuação
-			print("Relate: Correct connection between ", source_id, " and ", target_id)
-			# Animação de sucesso, a linha fica permanente e verde
+	if correto:
+		if not _conexoes_atuais.has(id_origem) and not _conexoes_atuais.has(id_alvo):
+			_conexoes_atuais[id_origem] = id_alvo
+			_conexoes_atuais[id_alvo] = id_origem
+			_contador_conexoes_corretas += 1
+			_pontuacao += 30
+			print("Relate: Conexão correta entre ", id_origem, " e ", id_alvo)
 		else: 
-			print("Relate: One of the items is already connected.")
-			# Feedback visual de que a conexão não foi aceita
+			print("Relate: Um dos itens já está conectado.")
 	else:
-		_attempts += 1
-		_score = max(0, _score - 5) # Penalidade leve
-		print("Relate: Incorrect connection between ", source_id, " and ", target_id)
-		# Animação de erro, a linha "some" ou fica vermelha e depois some
+		_tentativas += 1
+		_pontuacao = max(0, _pontuacao - 5)
+		print("Relate: Conexão incorreta entre ", id_origem, " e ", id_alvo)
 	
-	update_progress_bar(_correct_connections_count, _total_connections_needed)
-	drawing_canvas.queue_redraw() # Redesenha todas as linhas fixas
+	atualizar_barra_progresso(_contador_conexoes_corretas, _total_conexoes_necessarias)
+	canvas_desenho.queue_redraw()
 	
-	if _correct_connections_count == _total_connections_needed:
-		_finish_relate_challenge()
+	if _contador_conexoes_corretas == _total_conexoes_necessarias:
+		_finalizar_desafio_relacionar()
 
-func _finish_relate_challenge() -> void:
-	var is_success = _correct_connections_count == _total_connections_needed
-	_on_challenge_completed(is_success, _score, {"correct_connections": _correct_connections_count, "total_connections": _total_connections_needed})
+func _finalizar_desafio_relacionar() -> void:
+	var sucesso = _contador_conexoes_corretas == _total_conexoes_necessarias
+	_on_desafio_concluido(sucesso, _pontuacao, {
+		"conexoes_corretas": _contador_conexoes_corretas, 
+		"total_conexoes": _total_conexoes_necessarias
+	})
 
 func _draw():
-	# Desenha as linha permanentementes
-	for left_id in _current_connections:
-		var right_id = _current_connections[left_id]
-		var left_item = _get_relate_item_node_by_id(left_id) # Vai precisar implementar isso
-		var right_item = _get_relate_item_node_by_id(right_id) # Vai pprecisar implementar isso
+	for id_esquerda in _conexoes_atuais:
+		var id_direita = _conexoes_atuais[id_esquerda]
+		var item_esquerda = _obter_no_item_por_id(id_esquerda)
+		var item_direita = _obter_no_item_por_id(id_direita)
 		
-		if left_item and right_item: 
-			var start_point = left_item.global_position + left_item.size / 2
-			var end_point = right_item.global_position + right_item.size / 2
-			drawing_canvas.draw_line(drawing_canvas.to_local(start_point), drawing_canvas.to_local(end_point), Color.GREEN, 5)
+		if item_esquerda and item_direita: 
+			var ponto_inicio = item_esquerda.global_position + item_esquerda.size / 2
+			var ponto_fim = item_direita.global_position + item_direita.size / 2
+			canvas_desenho.draw_line(
+				canvas_desenho.to_local(ponto_inicio), 
+				canvas_desenho.to_local(ponto_fim), 
+				Color.GREEN, 5
+			)
 	
-	# Desenha a linha temporária enquanto o jogador está arrastando
-	if _is_drawing_line:
-		drawing_canvas.draw_line(drawing_canvas.to_local(_drawing_start_pos), drawing_canvas.to_local(get_viewport().get_mouse_position()), Color.BLUE, 3)	
+	if _desenhando_linha:
+		canvas_desenho.draw_line(
+			canvas_desenho.to_local(_posicao_inicio_desenho), 
+			canvas_desenho.to_local(get_viewport().get_mouse_position()), 
+			Color.BLUE, 3
+		)
 
-func _get_relate_item_node_by_id(id: String) -> Node:
-	# Implementar este método para encontrar o nó de RelateItem pelo seu ID
-	# Isso pode envolver iterar sobre os filhos dos contêineres de colunas.
-	# Exemplo simples:
-	for child in left_column_container.get_children():
-		if child is RelateItem and child.id == id:
-			return child
-	for child in right_column_container.get_children():
-		if child is RelateItem and child.id == id:
-			return child
+func _obter_no_item_por_id(id: String) -> Node:
+	for filho in container_coluna_esquerda.get_children():
+		if filho is ItemRelacionar and filho.id == id:
+			return filho
+	for filho in container_coluna_direita.get_children():
+		if filho is ItemRelacionar and filho.id == id:
+			return filho
 	return null

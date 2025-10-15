@@ -18,10 +18,4 @@ config/features=PackedStringArray("4.4", "Forward Plus")
 
 GameManager="*res://scripts/game_management/GameManager.gd"
 FlowManager="*res://scripts/game_management/FlowManager.gd"
-DraggableItem="*res://scripts/components/DraggableItem.gd"
-DropZone="*res://scripts/components/DropZone.gd"
-ChallengeBase="*res://scripts/challenges/ChallengeBase.gd"
-DragDropChallenge="*res://scripts/challenges/DragDropChallenge.gd"
-QuizChallenge="*res://scripts/challenges/QuizChallenge.gd"
-RelateChallenge="*res://scripts/challenges/RelateChallenge.gd"
 ChallengeDataManager="*res://scripts/game_management/ChallengeDataManager.gd"

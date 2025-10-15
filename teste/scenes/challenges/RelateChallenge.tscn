@@ -1,17 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://usqrmo73xgdt"]
+[gd_scene load_steps=2 format=3 uid="uid://brlnwi3s2b6nn"]
 
-[ext_resource type="PackedScene" uid="uid://cm5575sipopee" path="res://scenes/components/ChallengeBase.tscn" id="1_0h33l"]
+[ext_resource type="PackedScene" uid="uid://cm5575sipopee" path="res://scenes/challenges/ChallengeBase.tscn" id="1_0h33l"]
 
 [node name="ChallengeBase" instance=ExtResource("1_0h33l")]
 
-[node name="BackGround_HBoxContainer_VBoxContainer_ChallengeContentContainer#HBoxContainer_VBoxContainer_ChallengeContentContainer#HBoxContainer" type="HBoxContainer" parent="." index="0"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MarginContainer/BackGround/MarginContainer/HBoxContainer/VBoxContainer/ChallengeContentContainer" index="0"]
 layout_mode = 2
 
-[node name="LeftColumnContainer" type="VBoxContainer" parent="BackGround_HBoxContainer_VBoxContainer_ChallengeContentContainer#HBoxContainer_VBoxContainer_ChallengeContentContainer#HBoxContainer" index="0"]
+[node name="LeftColumnContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer/BackGround/MarginContainer/HBoxContainer/VBoxContainer/ChallengeContentContainer/HBoxContainer" index="0"]
+unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 2
+alignment = 1
 
-[node name="DrawingCanvas" type="Control" parent="BackGround_HBoxContainer_VBoxContainer_ChallengeContentContainer#HBoxContainer_VBoxContainer_ChallengeContentContainer#HBoxContainer" index="1"]
+[node name="DrawingCanvas" type="Control" parent="MarginContainer/MarginContainer/BackGround/MarginContainer/HBoxContainer/VBoxContainer/ChallengeContentContainer/HBoxContainer" index="1"]
+unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="RightColumnContainer" type="VBoxContainer" parent="BackGround_HBoxContainer_VBoxContainer_ChallengeContentContainer#HBoxContainer_VBoxContainer_ChallengeContentContainer#HBoxContainer" index="2"]
+[node name="RightColumnContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer/BackGround/MarginContainer/HBoxContainer/VBoxContainer/ChallengeContentContainer/HBoxContainer" index="2"]
+unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 10
+alignment = 1

@@ -1,12 +1,10 @@
-# Modelo
 {
-	"fase_fases_da_lua": {
-		"title": "As Fases da Lua",
+	"fase_propriedade_fisica_dos_materiais": {
+		"title": "Propriedades Físicas dos Materiais",
 		"challenges": [
-			{ "type": "quiz", "id": "quiz_lua_cheia" },
-			{ "type": "relate", "id": "rel_lua_fases" },
-			{ "type": "quiz", "id": "quiz_lua_nova" },
-			{ "type": "dragdrop", "id": "dd_planetas_ordem" }
+			{ "type": "quiz", "id": "quiz_prop_fisicas_mat_1" },
+			{ "type": "quiz", "id": "quiz_prop_fisicas_mat_2" },
+			{ "type": "quiz", "id": "quiz_prop_fisicas_mat_3" }
 		]
 	}
 }

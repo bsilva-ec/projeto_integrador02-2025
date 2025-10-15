@@ -1,109 +1,116 @@
 # DragDropChallenge.gd
 extends "res://scripts/challenges/ChallengeBase.gd"
 
-@onready var background_texture_rect: TextureRect = %BackgroundTextureRect
-@onready var drag_items_container: HBoxContainer = %DragItemsContainer # Contêiner para os itens arrastáveis
-@onready var drop_areas_container: Control = %DropAreasContainer # Contêiner para as áreas de drop
+var textura_fundo: TextureRect
+var container_itens_arrastaveis: HBoxContainer
+var container_areas_soltura: Control
 
-var _items_to_drag: Array = []
-var _drop_areas_data: Array = []
-var _placed_correctly_count: int = 0
-var _total_items_to_place: int = 0
+var _itens_para_arrastar: Array = []
+var _dados_areas_soltura: Array = []
+var _contador_colocacoes_corretas: int = 0
+var _total_itens_para_colocar: int = 0
 
 func _ready():
 	super._ready()
-	# Conecte o signal de input global para capturar arrastar e  soltar
-	set_process_input(true) # Habilita o _input para esta cena
+	textura_fundo = find_child("BackgroundTextureRect", true, false)
+	container_itens_arrastaveis = find_child("DragItemsContainer", true, false)
+	container_areas_soltura = find_child("DropAreasContainer", true, false)
+	set_process_input(true)
 
-# Métodos Sobrescritos da ChallengeBase
+func _carregar_dados_desafio() -> Dictionary:
+	return _dados_desafio
 
-func _load_challenge_data() -> Dictionary:
-	return _challenge_data
-
-func _setup_ui_for_challenge(data: Dictionary) -> void:
-	_items_to_drag = data.get("items_to_drag", [])
-	_drop_areas_data = data.get("drop_areas", [])
-	_total_items_to_place = _items_to_drag.size()
-	_placed_correctly_count = 0
+func _configurar_interface_desafio(dados: Dictionary) -> void:
+	_itens_para_arrastar = dados.get("items_to_drag", [])
+	_dados_areas_soltura = dados.get("drop_areas", [])
+	_total_itens_para_colocar = _itens_para_arrastar.size()
+	_contador_colocacoes_corretas = 0
 	
-	if data.has("background_image_path"):
-		background_texture_rect.texture = load(data["background_image_path"])
+	# Carregar background
+	if dados.has("background_image_path"):
+		var textura_fundo_carregada = load(dados["background_image_path"])
+		if textura_fundo_carregada:
+			textura_fundo.texture = textura_fundo_carregada
 	
-	# Limpa contêineres
-	for child in drag_items_container.get_children(): child.queue_free()
-	for child in drop_areas_container.get_children(): child.queue_free()
+	# Limpar contêineres
+	for filho in container_itens_arrastaveis.get_children(): 
+		filho.queue_free()
+	for filho in container_areas_soltura.get_children(): 
+		filho.queue_free()
 	
-	# Cria itens arrastáveis
-	for item_data in _items_to_drag:
-		var drag_item = DraggableItem.new()
-		drag_item.id = item_data.id
-		drag_item.texture = load(item_data.image_path)
-		drag_item.correct_drop_area_id = item_data.correct_drop_area_id
-		drag_item.item_dropped.connect(_on_item_dropped) # Conecta o signal de drop
-		drag_items_container.add_child(drag_item)
-	
-	# Cria áreas de drop
-	for area_data in _drop_areas_data:
-		var drop_area = DropZone.new() # Uma cena/script separada para a área de drop
-		drop_area.id = area_data.id
-		# Configurar posição e tamanho da área de drop (pode ser relativo à tela)
-		# Exemplo: drop_area.position = Vector2(area_data.position_x * get_viewport_rect().size.x, ...)
-		drop_area.position = Vector2(area_data.positon_x, area_data.position_y)
-		drop_area.size = Vector2(area_data.size_x, area_data.size_y)
-		# Visualizar temporariamente a área de drop usando um ColorRect
-		var visualizer = ColorRect.new()
-		visualizer.color = Color(1,1,1,0.2) # Transparente
-		visualizer.size = drop_area.size
-		drop_area.add_child(visualizer) 
+	# Criar itens arrastáveis
+	for dados_item in _itens_para_arrastar:
+		var item_arrastavel = DraggableItem.new()
+		item_arrastavel.id = dados_item.id
+		item_arrastavel.id_area_soltura_correta = dados_item.correct_drop_area_id
 		
-		drop_areas_container.add_child(drop_area)
+		# Configurar visual do item
+		item_arrastavel.custom_minimum_size = Vector2(80, 80)
+		item_arrastavel.size = Vector2(80, 80)
+		
+		# Adicionar TextureRect como filho para a imagem
+		var textura_item = TextureRect.new()
+		textura_item.texture = load(dados_item.image_path)
+		textura_item.expand_mode = TextureRect.EXPAND_FIT_WIDTH_PROPORTIONAL
+		textura_item.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		textura_item.size = Vector2(70, 70)
+		textura_item.position = Vector2(5, 5)
+		item_arrastavel.add_child(textura_item)
+		
+		item_arrastavel.item_soltado.connect(_on_item_soltado)
+		container_itens_arrastaveis.add_child(item_arrastavel)
 	
-	update_progress_bar(_placed_correctly_count, _total_items_to_place)
+	# Criar áreas de soltura
+	for dados_area in _dados_areas_soltura:
+		var zona_soltura = preload("res://scenes/components/DropZone.tscn").instantiate()
+		zona_soltura.id = dados_area.id
+		zona_soltura.position = Vector2(dados_area.position_x, dados_area.position_y)
+		zona_soltura.tamanho_padrao = Vector2(dados_area.size_x, dados_area.size_y)
+		
+		# Opcional: adicionar label para identificar
+		var label = Label.new()
+		label.text = dados_area.id
+		label.position = Vector2(5, 5)
+		zona_soltura.add_child(label)
+		
+		container_areas_soltura.add_child(zona_soltura)
+	
+	atualizar_barra_progresso(_contador_colocacoes_corretas, _total_itens_para_colocar)
 
-func _start_challenge_logic() -> void:
-	pass # A lógica principal é reativa ao drop
-
-func _process_player_input(input_data) -> void:
-	# Este método não é diretamente usado para o Drag & Drop principal
-	# A interação acontece via sinais dos DraggableItem e DropZone
+func _iniciar_logica_desafio() -> void:
 	pass
 
-# Métodos Específicos do Drag & Drop
+func _processar_entrada_jogador(_dados_entrada) -> void:
+	pass
 
-func _on_item_dropped(drag_item_id: String, dropped_on_area_id: String, is_correct: bool, drag_item_node: Node) -> void:
-	if is_correct:
-		_placed_correctly_count += 1
-		_score += 20 # Exemplo de pontuação
-		print("DragDrop: Item ", drag_item_id, " placed correctly on ", dropped_on_area_id)
-		# Encontra a área de drop correta entre os filhos do container
-		var drop_area_node: Control = null
-		for area in drop_areas_container.get_children():
-			if area.id == dropped_on_area_id:
-				drop_area_node = area
+func _on_item_soltado(id_item_arrastavel: String, id_area_soltada: String, correto: bool, no_item_arrastavel: Node) -> void:
+	if correto:
+		_contador_colocacoes_corretas += 1
+		_pontuacao += 20
+		print("DragDrop: Item ", id_item_arrastavel, " colocado corretamente em ", id_area_soltada)
+		
+		var no_area_soltura: Control = null
+		for area in container_areas_soltura.get_children():
+			if area.id == id_area_soltada:
+				no_area_soltura = area
 				break
 
-		# Se a área foi encontrada, reparenta o item para travar sua posição
-		if drop_area_node:
-			drag_item_node.get_parent().remove_child(drag_item_node)
-			drop_area_node.add_child(drag_item_node)
-			# Opcional: Centraliza o item dentro da área de drop
-			drag_item_node.position = (drop_area_node.size / 2) - (drag_item_node.size / 2)
-		drag_item_node.mouse_filter = Control.MOUSE_FILTER_IGNORE # Impede que seja arrastado novamente
-		# Animação de sucesso
+		if no_area_soltura:
+			no_item_arrastavel.get_parent().remove_child(no_item_arrastavel)
+			no_area_soltura.add_child(no_item_arrastavel)
+			no_item_arrastavel.position = (no_area_soltura.size / 2) - (no_item_arrastavel.size / 2)
+		no_item_arrastavel.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	else:
-		_attempts += 1 # Contar tentativas totais
-		_score = max(0, _score - 5) # Penalidade leve
-		print("DragDrop: Item ", drag_item_id, " placed INCORRECTLY on ", dropped_on_area_id)
-		# Animação de erro, item volta para o container original, etc.
-		drag_item_node.return_to_original_position() # Método no DraggableItem
+		_tentativas += 1
+		_pontuacao = max(0, _pontuacao - 5)
+		print("DragDrop: Item ", id_item_arrastavel, " colocado INCORRETAMENTE em ", id_area_soltada)
+		no_item_arrastavel.retornar_para_posicao_original()
 	
-	update_progress_bar(_placed_correctly_count, _total_items_to_place)
+	atualizar_barra_progresso(_contador_colocacoes_corretas, _total_itens_para_colocar)
 	
-	if _placed_correctly_count == _total_items_to_place:
-		var is_sucess = _placed_correctly_count == _total_items_to_place
-		_on_challenge_completed(is_sucess, _score, {"correct_placements": _placed_correctly_count, "total_placements": _total_items_to_place})
-
-# Componentes auxiliares para Drag & Drop
-# DraggableItem.gd (script anexado a um TextureRect ou Control)
-# DropZone.gd (script anexado a um ColorRect ou Control)
-# Precisa criar essas cenas/scripts separadamente
+	if _contador_colocacoes_corretas == _total_itens_para_colocar:
+		var sucesso = _contador_colocacoes_corretas == _total_itens_para_colocar
+		_on_desafio_concluido(sucesso, _pontuacao, {
+			"colocacoes_corretas": _contador_colocacoes_corretas, 
+			"total_colocacoes": _total_itens_para_colocar
+		})

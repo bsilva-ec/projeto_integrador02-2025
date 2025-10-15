@@ -1,26 +1,38 @@
-# Modelo
 {
-	"quiz_lua_cheia": {
-		"title": "Fases da Lua",
+	"quiz_prop_fisicas_mat_1": {
+		"title": "Propriedades Físicas dos Materiais",
 		"instructions": "Leia a pergunta e selecione a alternativa correta.",
-		"question": "Qual o nome da fase em que vemos toda a face da Lua iluminada pelo Sol?",
+		"question": "A energia utilizada nas casas dos brasileiros capaz de fazer funcionar um computador é considerada uma energia: ",
 		"options": [
-			"Lua Nova",
-			"Lua Cheia",
-			"Lua Minguante",
-			"Lua Crescente"
+			"Mecânica",
+			"Química", 
+			"Radiante",
+			"Elétrica"
 		],
-		"correct_answer": "Lua Cheia"
+		"correct_answer": "Elétrica"
 	},
-	"quiz_lua_nova": {
-		"title": "Fases da Lua",
+	"quiz_prop_fisicas_mat_2": {
+		"title": "Propriedades Físicas dos Materiais",
 		"instructions": "Leia a pergunta e selecione a alternativa correta.",
-		"question": "Quando a Lua está posicionada entre a Terra e o Sol, qual fase ocorre?",
+		"question": "A energia utilizada para lançar uma flecha com um arco, gerando a capacidade de um corpo em produzir trabalho é chamada de: ",
 		"options": [
-			"Lua Cheia",
-			"Lua Minguante",
-			"Lua Nova"
+			"Química",
+			"Mecânica",
+			"Radiante",
+			"Térmica"
 		],
-		"correct_answer": "Lua Nova"
+		"correct_answer": "Mecânica"
+	},
+	"quiz_prop_fisicas_mat_3": {
+		"title": "Propriedades Físicas dos Materiais", 
+		"instructions": "Leia a pergunta e selecione a alternativa correta.",
+		"question": "Em relação à energia elétrica, marque a opção CORRETA.",
+		"options": [
+			"É a mais utilizada pelas pessoas.",
+			"É liberada em uma reação química.",
+			"Aparece em forma de calor, raios ou luzes.",
+			"Está relacionada com a temperatura e o calor."
+		],
+		"correct_answer": "É a mais utilizada pelas pessoas."
 	}
 }

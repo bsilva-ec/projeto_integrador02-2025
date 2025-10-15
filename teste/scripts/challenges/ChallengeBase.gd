@@ -1,91 +1,107 @@
 # ChallengeBase.gd
 extends Control
 
-@export var challenge_id: String = "" # ID único desta instância de desafio (para carregar o JSON)
-@onready var mission_title_label: Label = %MissonTitleLabel
-@onready var instructions_label: Label = %InstructionsLabel
-@onready var progress_bar: ProgressBar = %ProgressBar
-@onready var challenge_content_container: Control = %ChallengeContentConteiner # Onde o conteúdo específico do dasafio vai
+@export var id_desafio: String = ""
+var label_titulo_missao: Label
+var label_instrucoes: Label
+var barra_progresso: ProgressBar
+var container_conteudo_desafio: Control
+var botao_menu: Button
 
-signal challenge_started(id)
-signal challenge_finished(id, score, is_sucess, additional_data) # Para o GameManager
-signal request_exit_to_map() # Para o FlowManager
+signal desafio_iniciado(id)
+signal desafio_concluido(id, pontuacao, sucesso, dados_adicionais)
+signal pausa_solicitada
 
-var _challenge_data: Dictionary = {} #Dados carregados do JSON
-var _score: int = 0
-var _attempts: int = 0
-var _time_spent: float = 0.0
-var _start_time: float = 0.0
+var _dados_desafio: Dictionary = {}
+var _pontuacao: int = 0
+var _tentativas: int = 0
+var _tempo_gasto: float = 0.0
+var _tempo_inicio: float = 0.0
+
+var inicializado: bool = false
 
 func _ready():
-	# Conecte o botão de Menu, se houver
-	%MenuButton.pressed.connect(_on_menu_button_pressed) # Assumindo que tem um botão de menu na base
+	print("=== CHALLENGEBASE: Container carregado ===")
+	
+	if inicializado:
+		return
+		
+	inicializado = true
+	_buscar_nos_interface()
+	print("🔍 ChallengeBase - Visibilidade:")
+	print("   - label_titulo_missao: ", label_titulo_missao != null, " - visível: ", label_titulo_missao.visible if label_titulo_missao else false)
+	print("   - label_instrucoes: ", label_instrucoes != null, " - visível: ", label_instrucoes.visible if label_instrucoes else false)
+	print("   - container_conteudo_desafio: ", container_conteudo_desafio != null, " - visível: ", container_conteudo_desafio.visible if container_conteudo_desafio else false)
+	print("   - self (ChallengeBase): ", self.visible)
+	await get_tree().process_frame
+	_iniciar_desafios()
 
-# Métodos Virtuais (Implementados pelas classes filhas)
-# Carrega os dados específicos do desafio (do JSON)
-func _load_challenge_data() -> Dictionary:
-	printerr("ChallengeBase: _load_challenge_data() must be implemented by derived classes.")
+func _iniciar_desafios():
+	print("Iniciando desafios para: ", GameManager.id_fase_atual)
+	
+	if GameManager.id_fase_atual:
+		GameManager.iniciar_fase(GameManager.id_fase_atual, self)
+	else:
+		printerr("Nenhuma fase definida!")
+
+func _buscar_nos_interface():
+	label_titulo_missao = find_child("MissionTitleLabel", true, false)
+	label_instrucoes = find_child("InstructionsLabel", true, false)
+	barra_progresso = find_child("ProgressBar", true, false)
+	container_conteudo_desafio = find_child("ChallengeContentContainer", true, false)
+	botao_menu = find_child("MenuButton", true, false)
+	
+	if botao_menu:
+		print("MenuButton encontrado")
+		botao_menu.pressed.connect(_on_botao_menu_pressionado)
+	else:
+		printerr("MenuButton não encontrado")
+
+func _carregar_dados_desafio() -> Dictionary:
+	printerr("ChallengeBase: _carregar_dados_desafio() deve ser implementado pelas classes derivadas.")
 	return {}
 
-# Prepara a UI com base nos dados carregados
-func _setup_ui_for_challenge(data: Dictionary) -> void:
-	printerr("ChallengeBase: _setup_ui_for_challenge() must be implemented by derived classes.")
+func _configurar_interface_desafio(_dados: Dictionary) -> void:
+	printerr("ChallengeBase: _configurar_interface_desafio() deve ser implementado pelas classes derivadas.")
 
-# Inicia a lógica do desafio
-func _start_challenge_logic() -> void:
-	printerr("ChallengeBase: _start_challenge_logic() must be implemented by derived classes.")
+func _iniciar_logica_desafio() -> void:
+	printerr("ChallengeBase: _iniciar_logica_desafio() deve ser implementado pelas classes derivadas.")
 
-# Processa uma resposta/interação do jogador
-func _process_player_input(input_data) -> void:
-	printerr("ChallengeBase: _process_player_input() must be implemented by derived classes.")
+func _processar_entrada_jogador(_dados_entrada) -> void:
+	printerr("ChallengeBase: _processar_entrada_jogador() deve ser implementado pelas classes derivadas.")
 
-#Métodos Comuns (Usados por todas as classes filhas)
-#Chamado pra iniciar o desafio (do WorldMap)
-func setup_challenge(data: Dictionary) -> void:
-	_challenge_data = data
-	_score = 0
-	_attempts = 0
-	_time_spent = 0.0
+func configurar_desafio(dados: Dictionary) -> void:
+	_dados_desafio = dados
+	_pontuacao = 0
+	_tentativas = 0
+	_tempo_gasto = 0.0
 	
-	if _challenge_data.is_empty():
+	if _dados_desafio.is_empty():
 		printerr("ChallengeBase: Recebeu dados vazios!")
-		request_exit_to_map.emit()
+		pausa_solicitada.emit()
 		return
 	
-	# Atualiza o challenge_id da classe com o ID vindo dos dados.
-	challenge_id = _challenge_data.get("id", "unknown_id")
+	id_desafio = _dados_desafio.get("id", "id_desconhecido")
 	
-	mission_title_label.text = _challenge_data.get("title", "Desafio")
-	instructions_label.text = _challenge_data.get("instructions", "Complete a missão.")
+	label_titulo_missao.text = _dados_desafio.get("title", "Desafio")
+	label_instrucoes.text = _dados_desafio.get("instructions", "Complete a missão.")
 	
-	# Chama o _load_challenge_data() que estava faltando
-	_load_challenge_data()
-	
-	# A lógica principal não muda
-	_setup_ui_for_challenge(_challenge_data) # Chama o setup específico da classe filha
-	_start_time = Time.get_ticks_msec()
-	challenge_started.emit(_challenge_data.get("id", "unknown_id")) # Pode pegar o id dos dados
-	_start_challenge_logic() # Inicia a lógica específica da classe filha
+	_carregar_dados_desafio()
+	_configurar_interface_desafio(_dados_desafio)
+	_tempo_inicio = Time.get_ticks_msec()
+	desafio_iniciado.emit(_dados_desafio.get("id", "id_desconhecido"))
+	_iniciar_logica_desafio()
 
-# Chamado quando o desafio é concluído
-func _on_challenge_completed(is_success: bool, final_score: int, additional_info: Dictionary = {}) -> void:
-	_time_spent = (Time.get_ticks_msec() - _start_time) / 1000.0 # Tempo em segundos
+func _on_desafio_concluido(sucesso: bool, pontuacao_final: int, info_adicional: Dictionary = {}) -> void:
+	_tempo_gasto = (Time.get_ticks_msec() - _tempo_inicio) / 1000.0
 	
-	# Emitir signal para o GameManager para atualizar o progresso do aluno
-	challenge_finished.emit(challenge_id, final_score, is_success, additional_info)
-	
-	# Após a emissão, o FlowManager muda para a tela de recompensa
-	# Exemplo: FlowManager.goto_reward_screen(challenge_id, final_score, is_success)
-	request_exit_to_map.emit() # Temporário, até ter a tela de recompensa
+	desafio_concluido.emit(id_desafio, pontuacao_final, sucesso, info_adicional)
+	pausa_solicitada.emit()
 
-# Atualiza a barra de progresso (a ser chamada pelas classes filhas)
-func update_progress_bar(current: int, total: int) -> void:
-	if progress_bar:
-		progress_bar.value = float(current) / total * 100
-		# Pode também atualizar um Label com "current/total"
-		pass
+func atualizar_barra_progresso(atual: int, total: int) -> void:
+	if barra_progresso:
+		barra_progresso.value = float(atual) / total * 100
 
-func _on_menu_button_pressed() -> void:
-	print("Menu button pressed from challenge.")
-	request_exit_to_map.emit() # pedir ao FlowManager para voltar ao mapa
-	# Caso seja necessário adicionar a confirmação de saída, adicione
+func _on_botao_menu_pressionado() -> void:
+	print("Botão menu pressionado do desafio.")
+	pausa_solicitada.emit()

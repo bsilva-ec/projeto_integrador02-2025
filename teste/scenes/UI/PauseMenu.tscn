@@ -1,0 +1,63 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckjr4nvparyny"]
+
+[ext_resource type="Script" uid="uid://cmsro3yf5sr10" path="res://scripts/UI/PauseMenu.gd" id="1_fsae6"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_fsae6")
+
+[node name="TextureRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.588235)
+
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 350
+theme_override_constants/margin_top = 150
+theme_override_constants/margin_right = 350
+theme_override_constants/margin_bottom = 150
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/MarginContainer/TextureRect"]
+layout_mode = 2
+offset_right = 452.0
+offset_bottom = 348.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="TextureRect/MarginContainer/TextureRect/VBoxContainer"]
+layout_mode = 2
+text = "Jogo Pausado"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="TextureRect/MarginContainer/TextureRect/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="ResumeButton" type="Button" parent="TextureRect/MarginContainer/TextureRect/VBoxContainer"]
+layout_mode = 2
+text = "Continuar"
+
+[node name="RestartButton" type="Button" parent="TextureRect/MarginContainer/TextureRect/VBoxContainer"]
+layout_mode = 2
+text = "Recomeçar Fase"
+
+[node name="QuitToMapButton" type="Button" parent="TextureRect/MarginContainer/TextureRect/VBoxContainer"]
+layout_mode = 2
+text = "Sair para o mapa"
+
+[connection signal="pressed" from="TextureRect/MarginContainer/TextureRect/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="TextureRect/MarginContainer/TextureRect/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="TextureRect/MarginContainer/TextureRect/VBoxContainer/QuitToMapButton" to="." method="_on_quit_to_map_button_pressed"]

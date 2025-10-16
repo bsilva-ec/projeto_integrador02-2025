@@ -1,0 +1,107 @@
+[gd_scene load_steps=3 format=3 uid="uid://0i32ubyxoeoh"]
+
+[ext_resource type="Script" uid="uid://dhtlsd7fu4p0h" path="res://scripts/UI/RewardScreen.gd" id="1_fcgys"]
+[ext_resource type="Texture2D" uid="uid://ceql2m6pqbnrk" path="res://assets/sprites/star.png" id="2_3iio6"]
+
+[node name="RewardScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fcgys")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.2)
+
+[node name="MarginContainer" type="MarginContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 250
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 250
+theme_override_constants/margin_bottom = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="EstrelasContainer" type="CenterContainer" parent="Background/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ContainerEstrelas" type="HBoxContainer" parent="Background/MarginContainer/VBoxContainer/EstrelasContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Star1" type="TextureRect" parent="Background/MarginContainer/VBoxContainer/EstrelasContainer/ContainerEstrelas"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture = ExtResource("2_3iio6")
+expand_mode = 3
+
+[node name="Star2" type="TextureRect" parent="Background/MarginContainer/VBoxContainer/EstrelasContainer/ContainerEstrelas"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_3iio6")
+expand_mode = 3
+
+[node name="Star3" type="TextureRect" parent="Background/MarginContainer/VBoxContainer/EstrelasContainer/ContainerEstrelas"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture = ExtResource("2_3iio6")
+expand_mode = 3
+
+[node name="TitleLabel" type="Label" parent="Background/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Parabéns!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Background/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="MessageLabel" type="Label" parent="Background/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Você completou o desafio!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="Background/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Pontuação: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="Background/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="ContinueButton" type="Button" parent="Background/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(250, 42)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Continuar"
+
+[connection signal="pressed" from="Background/MarginContainer/VBoxContainer/ContinueButton" to="." method="_on_botao_continuar_pressionado"]

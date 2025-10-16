@@ -1,0 +1,50 @@
+{
+	"relate_energia_1": {
+		"items_left_column": [
+			{"id": "solar", "text": "Energia Solar", "image_path": "res://assets/energy/solar.png"},
+			{"id": "eolica", "text": "Energia Eólica", "image_path": "res://assets/energy/wind.png"},
+			{"id": "hidro", "text": "Energia Hidrelétrica", "image_path": "res://assets/energy/water.png"}
+		],
+		"items_right_column": [
+			{"id": "sol", "text": "Sol", "image_path": "res://assets/sources/sun.png"},
+			{"id": "vento", "text": "Vento", "image_path": "res://assets/sources/wind.png"},
+			{"id": "agua", "text": "Água", "image_path": "res://assets/sources/water.png"}
+		],
+		"correct_connections": [
+			{"left_id": "solar", "right_id": "sol"},
+			{"left_id": "eolica", "right_id": "vento"},
+			{"left_id": "hidro", "right_id": "agua"}
+		]
+	},
+	"relate_test": {
+		"items_left_column": [
+			{"id": "pais_brasil", "text": "Brasil"},
+			{"id": "pais_eua", "text": "Estados Unidos"}
+		],
+		"items_right_column": [
+			{"id": "capital_brasil", "text": "Brasília"},
+			{"id": "capital_eua", "text": "Washington"}
+		],
+		"correct_connections": [
+			{"left_id": "pais_brasil", "right_id": "capital_brasil"},
+			{"left_id": "pais_eua", "right_id": "capital_eua"}
+		]
+	},
+	"relate_prop_fis_mat": {
+		"items_left_column": [
+			{"id": "jarro_barro", "image_path": "res://assets/sprites/jarro_barro.png"},
+			{"id": "botas_couro", "image_path": "res://assets/sprites/botas_couro.png"},
+			{"id": "chapeu_palha", "image_path": "res://assets/sprites/chapeu_palha.png"}
+		],
+		"items_right_column": [
+			{"id": "couro", "text": "Couro"},
+			{"id": "barro", "text": "Barro"},
+			{"id": "palha", "text": "Palha"}
+		],
+		"correct_connections": [
+			{"left_id": "jarro_barro", "right_id": "barro"},
+			{"left_id": "botas_couro", "right_id": "couro"},
+			{"left_id": "chapeu_palha", "right_id": "palha"}
+		]
+	}
+}

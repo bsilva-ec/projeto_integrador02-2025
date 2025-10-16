@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://w35o4d4qix21"]
+
+[ext_resource type="PackedScene" uid="uid://cm5575sipopee" path="res://scenes/challenges/ChallengeBase.tscn" id="1_adb7o"]
+[ext_resource type="Script" uid="uid://bpu5unsw6fect" path="res://scripts/challenges/QuizChallenge.gd" id="2_ytub7"]
+
+[node name="ChallengeBase" instance=ExtResource("1_adb7o")]
+script = ExtResource("2_ytub7")
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/MarginContainer/BackGround/MarginContainer/HBoxContainer/VBoxContainer/ChallengeContentContainer" index="0"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="QuestionTextLabel" type="RichTextLabel" parent="MarginContainer/MarginContainer/BackGround/MarginContainer/HBoxContainer/VBoxContainer/ChallengeContentContainer/MarginContainer2" index="0"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 62)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MarginContainer/BackGround/MarginContainer/HBoxContainer/VBoxContainer/ChallengeContentContainer/MarginContainer2" index="1"]
+layout_mode = 2
+theme_override_constants/margin_top = 75
+theme_override_constants/margin_bottom = 40
+
+[node name="OptionButtonsContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer/BackGround/MarginContainer/HBoxContainer/VBoxContainer/ChallengeContentContainer/MarginContainer2/MarginContainer" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[node name="NextButton" type="Button" parent="MarginContainer/MarginContainer/BackGround/MarginContainer/HBoxContainer/VBoxContainer/ChallengeContentContainer/MarginContainer2" index="2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 8
+text = "Confirmar Resposta"
+
+[node name="FeedbackLabel" type="Label" parent="MarginContainer/MarginContainer/BackGround/MarginContainer/HBoxContainer/VBoxContainer/ChallengeContentContainer/MarginContainer2" index="3"]
+unique_name_in_owner = true
+layout_mode = 2
+horizontal_alignment = 1
+
+[connection signal="pressed" from="MarginContainer/MarginContainer/BackGround/MarginContainer/HBoxContainer/VBoxContainer/ChallengeContentContainer/MarginContainer2/NextButton" to="." method="_ir_para_proxima_pergunta"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/BackGround/MarginContainer/HBoxContainer/VBoxContainer/ChallengeContentContainer/MarginContainer2/NextButton" to="." method="_on_next_button_pressed"]
